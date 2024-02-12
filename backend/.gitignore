@@ -1,0 +1,12 @@
+# Python related
+__pycache__/
+*.py[cod]
+*.pyc
+venv/
+.env
+*.sqlite3
+
+# IDE specific files
+.idea
+.vscode
+*.swp
