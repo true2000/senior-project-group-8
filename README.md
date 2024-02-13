@@ -9,3 +9,10 @@ This project aims to develop a content-based filtering approach for a movie reco
 As mentioned we will be using PyTorch to create the model for this project, the main reason that we decided to use it is it's easier to prototype a model quickly with multiple changes and provides an easy transition. Ontop of this it is has a lower skill floor to learning compared to other models that we considered such as Tensor Flow. 
 
 ### Frontend
+For our frotend we are using React. React made this most sense as some of us have experience with React and it is the most commonly used framework for modern web apps. We lastly decided that we should use TypeScript as we are all most proficient in statically typed languages such as Java and this will allow less errors and nice developer tools such as code completion and syntax highlighting for errors.  
+
+### Backend
+ Early on into our discussions we determined that our project wasn't going to be a large scale one, so it made it a quick decision that we would use Flask as it doesn't need that strict of a project structure. Another big reason that we wanted to use Flask was that PyTorch is natively supported in Python, so it will be easier to access the model in our backend. 
+
+
+ 
