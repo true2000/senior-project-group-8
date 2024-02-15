@@ -15,4 +15,6 @@ For our frotend we are using React. React made this most sense as some of us hav
  Early on into our discussions we determined that our project wasn't going to be a large scale one, so it made it a quick decision that we would use Flask as it doesn't need that strict of a project structure. Another big reason that we wanted to use Flask was that PyTorch is natively supported in Python, so it will be easier to access the model in our backend. 
 
 
- 
+ ## Contributors:
+Luke Lambart, Ryan Nock, Devin Pattison, Paul Richnow
+
