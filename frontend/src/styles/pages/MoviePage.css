@@ -1,0 +1,16 @@
+.moviePageContainer {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.moviePageContainer h1 {
+    margin: 0;
+    font-size: 2em; /* Example size, adjust as needed */
+}
