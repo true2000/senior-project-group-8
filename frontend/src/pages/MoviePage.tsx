@@ -9,7 +9,7 @@ const MoviePage: React.FC = () => {
   };
   return (
     <div className="moviePageContainer">
-      <h1>Movie Title</h1>
+      <h1>Movie Title Test</h1>
       <button onClick={handleEnterClick}>exit</button>{' '}
       {/* Button for navigation */}
     </div>
