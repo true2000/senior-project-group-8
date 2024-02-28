@@ -12,16 +12,16 @@ const HomePage: React.FC = () => {
   return (
     <div className="homePageContainer">
       <h1>IMAGE GOES HERE</h1>
-      <h1>FlickFinder</h1>
-      <p>
+      <h2>FlickFinder</h2>
+      <body>
         Find your next Flick based on movies that you are currently enjoying
-      </p>
+      </body>
       <button onClick={handleEnterClick}>Enter</button>{' '}
       {/* Button for navigation */}
-      <p>
+      <caption>
         This website is designed to help you find and increase your knowledge of
         movies.
-      </p>
+      </caption>
     </div>
   );
 };
