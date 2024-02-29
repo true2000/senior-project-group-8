@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles/pages/HomePage.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+// import MoviePage from './MoviePage';
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   const handleEnterClick = () => {
-    navigate('/moviesTest'); // Navigate to your target path
+    navigate('./MoviePage'); // Navigate to your target path
   };
 
   const handleAboutClick = () => {
