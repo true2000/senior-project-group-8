@@ -9,8 +9,9 @@ const AboutPage: React.FC = () => {
 
   return (
     <div className="aboutPageContainer">
-      <h1>About Page</h1>
-      <button onClick={handleEnterClick}>YUH</button>
+      <h1>Hello</h1>
+      <p>Hello</p>
+      <button onClick={handleEnterClick}></button>
     </div>
   );
 };

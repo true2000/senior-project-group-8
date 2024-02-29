@@ -7,11 +7,11 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   const handleEnterClick = () => {
-    navigate('./MoviePage'); // Navigate to your target path
+    navigate('/movies'); // Navigate to your MoviePage path
   };
 
   const handleAboutClick = () => {
-    navigate('/moviesAbout'); // Navigate to about path
+    navigate('/about'); // Navigate to AboutPage path
   };
 
   return (
