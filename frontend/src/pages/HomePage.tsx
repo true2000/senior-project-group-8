@@ -9,14 +9,21 @@ const HomePage: React.FC = () => {
     navigate('/moviesTest'); // Navigate to your target path
   };
 
+  // const handleAboutClick = () => {
+  //   navigate('/moviesAbout'); // Navigate to about path
+  // };
+
   return (
     <div className="homePageContainer">
+      <button className="aboutButton">About</button>
       <h1>IMAGE GOES HERE</h1>
       <h2>FlickFinder</h2>
       <body>
         Find your next Flick based on movies that you are currently enjoying
       </body>
-      <button onClick={handleEnterClick}>Enter</button>{' '}
+      <button className="enterButton" onClick={handleEnterClick}>
+        Enter
+      </button>{' '}
       {/* Button for navigation */}
       <caption>
         This website is designed to help you find and increase your knowledge of

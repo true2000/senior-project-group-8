@@ -5,12 +5,12 @@
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* This vertically centers the content */
+    /* justify-content: center; /* This vertically centers the content */ /* Started messing with height  */
     align-items: center; /* This horizontally centers the content */
     text-align: center;
 }
 
-.homePageContainer button {
+.homePageContainer .enterButton {
     padding: 10px 20px;
     margin-top: 25px; /* Adjust spacing above the button */
     margin-bottom: 20px;
@@ -35,4 +35,12 @@
 .homePageContainer caption {
     margin-top: 25px;
     font-size: 15px;
+}
+
+.homePageContainer .aboutButton {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    margin-left: 90%;
+    font-size: 20px;
+    cursor: pointer;
 }
