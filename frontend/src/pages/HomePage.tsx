@@ -9,13 +9,15 @@ const HomePage: React.FC = () => {
     navigate('/moviesTest'); // Navigate to your target path
   };
 
-  // const handleAboutClick = () => {
-  //   navigate('/moviesAbout'); // Navigate to about path
-  // };
+  const handleAboutClick = () => {
+    navigate('/moviesAbout'); // Navigate to about path
+  };
 
   return (
     <div className="homePageContainer">
-      <button className="aboutButton">About</button>
+      <button className="aboutButton" onClick={handleAboutClick}>
+        About
+      </button>
       <h1>IMAGE GOES HERE</h1>
       <h2>FlickFinder</h2>
       <body>
