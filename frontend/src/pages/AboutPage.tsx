@@ -13,17 +13,7 @@ const AboutPage: React.FC = () => {
   // <img src={image} alt="image" />     This was the last code I had instead along with the import
   return (
     <div className="aboutPageContainer">
-      <div className="introductionProfile">
-        <img
-          className="image"
-          src={require('../styles/images/image.png')}
-          alt="image"
-        />
-        <div className="text">
-          <h1>Paul Richnow</h1>
-          <p>testing if it actually works</p>
-        </div>
-      </div>
+      <h1 className="aboutHeader">Welcome to the group</h1>
 
       <div className="introductionProfile">
         <img
@@ -32,7 +22,43 @@ const AboutPage: React.FC = () => {
           alt="image"
         />
         <div className="text">
+          <h1>Devin Pattison</h1>
+          <p>testing if it actually works</p>
+        </div>
+      </div>
+
+      <div className="introductionProfile">
+        <img
+          className="image"
+          src={require('../styles/images/image2.jpeg')}
+          alt="image"
+        />
+        <div className="text">
           <h1>Luke Lambert</h1>
+          <p>Would really be a miracle</p>
+        </div>
+      </div>
+
+      <div className="introductionProfile">
+        <img
+          className="image"
+          src={require('../styles/images/image3.jpeg')}
+          alt="image"
+        />
+        <div className="text">
+          <h1>Ryan Nock</h1>
+          <p>Would really be a miracle</p>
+        </div>
+      </div>
+
+      <div className="introductionProfile">
+        <img
+          className="image"
+          src={require('../styles/images/image4.jpeg')}
+          alt="image"
+        />
+        <div className="text">
+          <h1>Paul Richnow</h1>
           <p>Would really be a miracle</p>
         </div>
       </div>
