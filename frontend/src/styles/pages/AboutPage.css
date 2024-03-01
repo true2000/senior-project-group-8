@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.aboutPageContainer p {
+.aboutPageContainer label {
+    font-size: 2em;
     margin: 0;
-    font-size: 30px;
 }
