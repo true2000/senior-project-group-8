@@ -13,8 +13,30 @@ const AboutPage: React.FC = () => {
   // <img src={image} alt="image" />     This was the last code I had instead along with the import
   return (
     <div className="aboutPageContainer">
-      <h1>Get To Know About Us</h1>
-      <img src={require('../styles/images/image.png')} alt="image" />
+      <div className="introductionProfile">
+        <img
+          className="image"
+          src={require('../styles/images/image.png')}
+          alt="image"
+        />
+        <div className="text">
+          <h1>Paul Richnow</h1>
+          <p>testing if it actually works</p>
+        </div>
+      </div>
+
+      <div className="introductionProfile">
+        <img
+          className="image"
+          src={require('../styles/images/image.png')}
+          alt="image"
+        />
+        <div className="text">
+          <h1>Luke Lambert</h1>
+          <p>Would really be a miracle</p>
+        </div>
+      </div>
+
       <button onClick={handleEnterClick}> Hello </button>
     </div>
   );
