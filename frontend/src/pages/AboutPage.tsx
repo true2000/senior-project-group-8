@@ -23,7 +23,7 @@ const AboutPage: React.FC = () => {
         />
         <div className="text">
           <h1>Devin Pattison</h1>
-          <p>testing if it actually works</p>
+          <p>Add Info...</p>
         </div>
       </div>
 
@@ -35,7 +35,7 @@ const AboutPage: React.FC = () => {
         />
         <div className="text">
           <h1>Luke Lambert</h1>
-          <p>Would really be a miracle</p>
+          <p>Add Info...</p>
         </div>
       </div>
 
@@ -47,7 +47,7 @@ const AboutPage: React.FC = () => {
         />
         <div className="text">
           <h1>Ryan Nock</h1>
-          <p>Would really be a miracle</p>
+          <p>Add Info...</p>
         </div>
       </div>
 
@@ -59,11 +59,12 @@ const AboutPage: React.FC = () => {
         />
         <div className="text">
           <h1>Paul Richnow</h1>
-          <p>Would really be a miracle</p>
+          <p>Add Info... </p>
         </div>
       </div>
-
-      <button onClick={handleEnterClick}> Hello </button>
+      <div className="buttonContainer">
+        <button onClick={handleEnterClick}> Back </button>
+      </div>
     </div>
   );
 };

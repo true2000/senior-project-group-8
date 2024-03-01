@@ -6,6 +6,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    text-align: center;
 }
 
 .introductionProfile {
@@ -23,6 +25,7 @@
 
 .text {
     flex-grow: 1;
+    margin-left: -40%;
 }
 
 .text h1 {
@@ -41,4 +44,21 @@
 .aboutHeader {
     text-align: center;
     font-size: 50px;
+}
+
+.buttonContainer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 30px;
+}
+
+.aboutPageContainer button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    font-size: 20px;
+    cursor: pointer;
+   
 }
