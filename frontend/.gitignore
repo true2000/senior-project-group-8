@@ -17,5 +17,4 @@
 .vscode
 *.swp
 
-# added the data bit
-data/
+
