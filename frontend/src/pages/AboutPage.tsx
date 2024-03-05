@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../styles/pages/AboutPage.css';
-// import image from '../styles/images/image.png';
+// import image from '../styles/images/image2.jpeg';
 
 const AboutPage: React.FC = () => {
   const navigate = useNavigate(); // Hook for navigation
