@@ -1,0 +1,21 @@
+# Python related
+__pycache__/
+*.py[cod]
+*.pyc
+venv/
+.env
+
+# Data
+/data
+*.csv
+*.xlsx
+
+# Model checkpoints
+/checkpoints/
+*.pt
+*.pth
+
+# IDE specific files
+.idea
+.vscode
+*.swp
