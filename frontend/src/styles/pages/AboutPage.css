@@ -1,0 +1,64 @@
+.aboutPageContainer {
+    min-height: 20vh;
+    min-width: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.introductionProfile {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.image {
+    margin-left: 350px;
+    width: 200px;
+    height: 250px;
+    margin-right: 30px;
+}
+
+.text {
+    flex-grow: 1;
+    margin-left: -40%;
+}
+
+.text h1 {
+    margin-top: 0;
+}
+
+.aboutPageContainer label {
+    font-size: 2em;
+    margin: 0;
+}
+
+.aboutPageContainer button {
+    margin-top: 15%;
+}
+
+.aboutHeader {
+    text-align: center;
+    font-size: 50px;
+}
+
+.buttonContainer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 30px;
+}
+
+.aboutPageContainer button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    font-size: 20px;
+    cursor: pointer;
+   
+}
