@@ -3,7 +3,7 @@ import string
 import os
 
 # Load the dataset
-file_path = "/Users/lukelambert/Desktop/TMDB_movie_dataset_v11.csv"
+#file_path = "/Users/lukelambert/Desktop/TMDB_movie_dataset_v11.csv"
 dataset = pd.read_csv(file_path)
 
 # Convert 'release_date' to datetime format to extract the year
@@ -14,7 +14,7 @@ dataset['year'] = dataset['release_date'].dt.year
 export_data = dataset[["id", "title", "year", "poster_path"]]
 
 # Directory to save the split files
-save_dir = "/Users/lukelambert/Desktop/letter"
+#save_dir = "/Users/lukelambert/Desktop/letter"
 os.makedirs(save_dir, exist_ok=True)
 
 # Loop through each letter of the alphabet
