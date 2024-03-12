@@ -10,7 +10,14 @@
     text-align: center;
 }
 
-.moviePageContainer h1 {
+
+
+.moviePageContainer ul {
+    list-style-type: none; /* Removes bullet points */
+}
+
+.moveListContainer {
     margin: 0;
     font-size: 2em; /* Example size, adjust as needed */
+    margin-top: 10px;
 }
