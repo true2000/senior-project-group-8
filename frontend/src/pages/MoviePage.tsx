@@ -44,10 +44,10 @@ const MoviePage: React.FC = () => {
 
   return (
     <div className="moviePageContainer">
-      <div className="moveListConatainer">
-        <h1>Selected Movies: {selectedMovies.join(', ')}</h1>
+      <div className="headerContainer">
+        <h1 className="header">Selected Movies: {selectedMovies.join(', ')}</h1>
       </div>
-      <h2>Movie Title Test</h2>
+      <h1>Movie Title Test</h1>
       <input
         type="text"
         placeholder="Search for a movie..."

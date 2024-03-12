@@ -1,13 +1,13 @@
 .moviePageContainer {
-    min-height: 100vh;
+    min-height: 10vh;
     width: 100vw;
     background-color: black;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center; */
     align-items: center;
-    text-align: center;
+
 }
 
 
@@ -16,8 +16,11 @@
     list-style-type: none; /* Removes bullet points */
 }
 
-.moveListContainer {
-    margin: 0;
-    font-size: 2em; /* Example size, adjust as needed */
-    margin-top: 10px;
+.headerContainer{
+    margin-right: 800px;
+
+}
+
+.header {
+    margin-right: 50px;
 }
