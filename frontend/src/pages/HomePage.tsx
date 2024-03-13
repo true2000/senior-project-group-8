@@ -13,6 +13,10 @@ const HomePage: React.FC = () => {
     navigate('/about'); // Navigate to AboutPage path
   };
 
+  const handleMovieRecClick = () => {
+    navigate('/movieRec'); // Navigate to AboutPage path
+  };
+
   return (
     <div className="homePageContainer">
       <button className="aboutButton" onClick={handleAboutClick}>
@@ -31,6 +35,9 @@ const HomePage: React.FC = () => {
         This website is designed to help you find and increase your knowledge of
         movies.
       </caption>
+      <button className="enterButton" onClick={handleMovieRecClick}>
+        Movie Rec
+      </button>
     </div>
   );
 };
