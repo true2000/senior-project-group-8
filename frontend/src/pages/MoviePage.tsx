@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import '../styles/pages/MoviePage.css';
 import { useNavigate } from 'react-router-dom';
 
-const movieTitles = ['Movie 1', 'Movie 2', 'Movie 3'];
+const movieTitles = [
+  'Movie 1',
+  'Movie 2',
+  'Movie 3',
+  'Shrek',
+  'Godzilla',
+  'YourMumma',
+];
 
 const MoviePage: React.FC = () => {
   const navigate = useNavigate();
