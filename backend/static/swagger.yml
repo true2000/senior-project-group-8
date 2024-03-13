@@ -29,7 +29,5 @@ definitions:
     properties:
       name:
         type: string
-      director:
-        type: string
       image:
         type: string
