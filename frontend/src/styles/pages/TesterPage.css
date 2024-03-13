@@ -1,46 +1,63 @@
-.title-page {
-    display: grid;
+.testerPageContainer {
+    min-height: 80vh;
+    width: 100vw;
+    background-color: black;
     color: white;
-    grid-template-rows: auto 1fr auto; /* Header, Main content, Footer */
-    grid-template-columns: 1fr; /* Single column layout */
-    min-height: 100vh; /* Full viewport height */
-  }
-  
-  .header {
-    grid-row: 1; /* Place header in the first row */
-    text-align: center;
-  }
-  
-  .nav {
-    grid-row: 2; /* Place navigation in the second row */
-    text-align: center;
-  }
-  
-  .main {
-    grid-row: 3; /* Place main content in the third row */
-    text-align: center;
-  }
-  
-  .footer {
-    grid-row: 4; /* Place footer in the fourth row */
-    text-align: center;
-  }
-  
-  /* Additional styling */
-  .nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .nav li {
-    display: inline;
-    margin: 0 10px;
-  }
-
-.buttonContainer {
-    align-items: center;
-    justify-content: center;
     display: flex;
-    margin-top: 30px;
+    flex-direction: column;
+    min-width: 50px;
+}
+
+.testerPageTaskBar {
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.taskButton {
+    padding: 10px 20px;
+    margin-top: 25px; /* Adjust spacing above the button */
+    margin-bottom: 20px;
+    font-size: 16px;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.taskButton:not(:last-child) {
+    margin-right: 10px; /* Add space between buttons */
+}
+
+.introContainer {
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+/* Basic setup for all the texts for home page */
+.introContainer h1 { 
+    font-size: 60px;
+    margin-bottom: 60px;
+}
+
+.introContainer h2 {
+    font-size: 30px;
+}
+
+.introContainer body {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.introContainer p {
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+.introContainer button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
 }

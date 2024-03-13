@@ -5,43 +5,59 @@
     color: white;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; /* This vertically centers the content */ /* Started messing with height  */
-    align-items: center; /* This horizontally centers the content */
-    text-align: center;
+    min-width: 50px;
 }
 
-.homePageContainer .enterButton {
+.homePageTaskBar {
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.homeTaskButton {
     padding: 10px 20px;
     margin-top: 25px; /* Adjust spacing above the button */
     margin-bottom: 20px;
     font-size: 16px;
     cursor: pointer;
-    /* Add more styles as needed */
+    border: none;
+    border-radius: 5px;
+
+}
+
+.homeTaskButton:not(:last-child) {
+    margin-right: 10px; /* Add space between buttons */
+}
+
+.homeIntroContainer {
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
 }
 
 /* Basic setup for all the texts for home page */
-.homePageContainer h1 { 
+.homeIntroContainer h1 { 
     font-size: 60px;
+    margin-bottom: 60px;
 }
 
-.homePageContainer h2 {
+.homeIntroContainer h2 {
     font-size: 30px;
 }
 
-.homePageContainer body {
+.homeIntroContainer body {
     font-size: 20px;
+    margin-bottom: 30px;
 }
 
-.homePageContainer caption {
-    margin-top: 25px;
+.homeIntroContainer p {
+    margin-top: 40px;
     font-size: 15px;
 }
 
-.homePageContainer .aboutButton {
+.homeIntroContainer button {
+    border: none;
+    border-radius: 5px;
     padding: 10px 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 90%;
-    font-size: 20px;
-    cursor: pointer;
 }

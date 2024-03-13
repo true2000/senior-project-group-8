@@ -1,40 +1,41 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../styles/pages/TesterPage.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const TesterPage: React.FC = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook for navigation
 
-  const handleExitClick = () => {
-    navigate('/');
+  const handleEnterClick = () => {
+    navigate('/movies'); // Navigate to your MoviePage path
+  };
+
+  const handleAboutClick = () => {
+    navigate('/about'); // Navigate to AboutPage path
+  };
+
+  const handleMovieRecClick = () => {
+    navigate('/movieRec'); // Navigate to AboutPage path
+  };
+
+  const handleTesterClick = () => {
+    navigate('/'); // Navigate to AboutPage path
   };
 
   return (
-    <div className="title-page">
-      <header className="header">
-        <h1>Title</h1>
-      </header>
-      <nav className="nav">
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </nav>
-      <main className="main">
-        <p>Welcome to our website!</p>
-      </main>
-      <footer className="footer">
-        <p>&copy; 2024 MyWebsite</p>
-      </footer>
-      <div className="buttonContainer">
-        <button onClick={handleExitClick}> Back </button>
+    <div className="testerPageContainer">
+      <div className="testerPageTaskBar">
+        <button className="taskButton" onClick={handleMovieRecClick}>
+          Movie Rec
+        </button>
+        <button className="taskButton" onClick={handleTesterClick}>
+          back
+        </button>
+        <button className="taskButton" onClick={handleAboutClick}>
+          About
+        </button>
+        <button className="taskButton" onClick={handleEnterClick}>
+          Enter
+        </button>{' '}
       </div>
     </div>
   );

@@ -45,7 +45,7 @@ const MoviePage: React.FC = () => {
   return (
     <div className="moviePageContainer">
       <div className="headerContainer">
-        <h1>Selected Movies: {selectedMovies.join(', ')}</h1>
+        <h1 className="header">Selected Movies: {selectedMovies.join(', ')}</h1>
       </div>
       <div className="searchContainer">
         <h1>Movie Title Test</h1>
