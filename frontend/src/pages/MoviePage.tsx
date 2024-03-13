@@ -45,30 +45,32 @@ const MoviePage: React.FC = () => {
   return (
     <div className="moviePageContainer">
       <div className="headerContainer">
-        <h1 className="header">Selected Movies: {selectedMovies.join(', ')}</h1>
+        <h1>Selected Movies: {selectedMovies.join(', ')}</h1>
       </div>
-      <h1>Movie Title Test</h1>
-      <input
-        type="text"
-        placeholder="Search for a movie..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
-      <ul>
-        {suggestions.map((suggestion, index) => (
-          <li key={index}>
-            {suggestion}
-            <input
-              type="checkbox"
-              checked={selectedMovies.includes(suggestion)}
-              onChange={(e) =>
-                handleCheckboxChange(suggestion, e.target.checked)
-              }
-            />
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleEnterClick}>Exit</button>
+      <div className="searchContainer">
+        <h1>Movie Title Test</h1>
+        <input
+          type="text"
+          placeholder="Search for a movie..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <ul>
+          {suggestions.map((suggestion, index) => (
+            <li key={index}>
+              {suggestion}
+              <input
+                type="checkbox"
+                checked={selectedMovies.includes(suggestion)}
+                onChange={(e) =>
+                  handleCheckboxChange(suggestion, e.target.checked)
+                }
+              />
+            </li>
+          ))}
+        </ul>
+        <button onClick={handleEnterClick}>Exit</button>
+      </div>
     </div>
   );
 };

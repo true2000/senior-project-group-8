@@ -1,15 +1,41 @@
-.testerPageContainer {
-
-    min-height: 20vh;
-    min-width: 100vh;
-    background-color: black;
+.title-page {
+    display: grid;
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
+    grid-template-rows: auto 1fr auto; /* Header, Main content, Footer */
+    grid-template-columns: 1fr; /* Single column layout */
+    min-height: 100vh; /* Full viewport height */
+  }
+  
+  .header {
+    grid-row: 1; /* Place header in the first row */
     text-align: center;
-}
+  }
+  
+  .nav {
+    grid-row: 2; /* Place navigation in the second row */
+    text-align: center;
+  }
+  
+  .main {
+    grid-row: 3; /* Place main content in the third row */
+    text-align: center;
+  }
+  
+  .footer {
+    grid-row: 4; /* Place footer in the fourth row */
+    text-align: center;
+  }
+  
+  /* Additional styling */
+  .nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .nav li {
+    display: inline;
+    margin: 0 10px;
+  }
 
 .buttonContainer {
     align-items: center;

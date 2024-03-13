@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
   };
 
   const handleTesterClick = () => {
-    navigate('/movieRec'); // Navigate to AboutPage path
+    navigate('/tester'); // Navigate to AboutPage path
   };
 
   return (

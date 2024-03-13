@@ -1,13 +1,23 @@
 .moviePageContainer {
     min-height: 10vh;
-    width: 100vw;
     background-color: black;
     color: white;
     display: flex;
     flex-direction: column;
-    /*justify-content: center; */
-    align-items: center;
 
+
+}
+
+.headerContainer{
+    margin-bottom: auto;
+    padding-bottom: 10%;
+
+}
+
+.searchContainer {
+    
+    text-align: center;
+    margin: auto;
 }
 
 
@@ -16,11 +26,5 @@
     list-style-type: none; /* Removes bullet points */
 }
 
-.headerContainer{
-    margin-right: 800px;
 
-}
 
-.header {
-    margin-right: 50px;
-}
