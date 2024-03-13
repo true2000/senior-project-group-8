@@ -17,6 +17,10 @@ const HomePage: React.FC = () => {
     navigate('/movieRec'); // Navigate to AboutPage path
   };
 
+  const handleTesterClick = () => {
+    navigate('/movieRec'); // Navigate to AboutPage path
+  };
+
   return (
     <div className="homePageContainer">
       <button className="aboutButton" onClick={handleAboutClick}>
@@ -37,6 +41,9 @@ const HomePage: React.FC = () => {
       </caption>
       <button className="enterButton" onClick={handleMovieRecClick}>
         Movie Rec
+      </button>
+      <button className="enterButton" onClick={handleTesterClick}>
+        Tester
       </button>
     </div>
   );
