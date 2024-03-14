@@ -21,9 +21,9 @@ const TesterPage: React.FC = () => {
     navigate('/'); // Navigate to AboutPage path
   };
 
-  const posterPath = '/kyeqWdyUXW608qlYkRqosgbbJyK.jpg';
+  const posterPath = '/kyeqWdyUXW608qlYkRqosgbbJyK.jpg'; //Poster Pathway for avatar
   const imageSize = 'w500'; // Choose the appropriate image size
-  const baseURL = 'https://image.tmdb.org/t/p/';
+  const baseURL = 'https://image.tmdb.org/t/p/'; //base URL for any of the pathways
 
   const fullURL = baseURL + imageSize + posterPath;
 

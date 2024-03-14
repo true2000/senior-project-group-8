@@ -3,6 +3,7 @@ import '../styles/pages/MoviePage.css';
 import { useNavigate } from 'react-router-dom';
 
 const movieTitles = [
+  // Chucked in a bunch of other movies to test spacing on page
   'Movie 1',
   'Movie 2',
   'Movie 3',

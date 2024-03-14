@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../styles/pages/AboutPage.css';
-// import image from '../styles/images/image2.jpeg';
 
 const AboutPage: React.FC = () => {
   const navigate = useNavigate(); // Hook for navigation
@@ -9,8 +8,7 @@ const AboutPage: React.FC = () => {
   const handleEnterClick = () => {
     navigate('/'); // Navigate to your target path
   };
-  //Not sure why I cannot import an image normally and implement it but using require works
-  // <img src={image} alt="image" />     This was the last code I had instead along with the import
+
   return (
     <div className="aboutPageContainer">
       <div className="aboutHeaderContainer">
