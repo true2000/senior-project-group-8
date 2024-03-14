@@ -68,21 +68,31 @@
     justify-content: center;
 
 }
-.popup {
+
+.overlay {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire viewport */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  
+  .popup {
     position: fixed; /* Fixed position relative to the viewport */
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
-    width: 40%;
-    height: 40%;
     transform: translate(-50%, -50%); /* Center the popup */
-    z-index: 1000; /* Ensure it appears above other content */
-    background-color: blue; /* Semi-transparent background */
+    z-index: 1001; /* Ensure it appears above the overlay */
+    background-color: white; /* Popup background color */
     padding: 20px; /* Add padding for content */
     border-radius: 10px; /* Add rounded corners */
   }
   
   .popup-content {
     text-align: center; /* Center content horizontally */
+    color: black;
   }
   
   .popup img {

@@ -16,14 +16,16 @@ const Popup: React.FC<ImageInfo & { onClose: () => void }> = ({
   onClose,
 }) => {
   return (
-    <div className="popup">
-      <div className="popup-content">
-        <img src={imageUrl} alt={title} />
-        <h2>{title}</h2>
-        <p>{description}</p>
+    <div className="overlay">
+      <div className="popup">
         <button className="close-button" onClick={onClose}>
           Close
         </button>
+        <div className="popup-content">
+          <img src={imageUrl} alt={title} />
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   );
