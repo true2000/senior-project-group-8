@@ -76,7 +76,7 @@
     width: 100%; /* Cover the entire viewport */
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 1000; /* Ensure it appears above other content */
+    z-index: 1002; /* Ensure it appears above other content */
   }
   
   .popup {
@@ -84,7 +84,7 @@
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Center the popup */
-    z-index: 1001; /* Ensure it appears above the overlay */
+    z-index: 1003; /* Ensure it appears above the overlay */
     background-color: white; /* Popup background color */
     padding: 20px; /* Add padding for content */
     border-radius: 10px; /* Add rounded corners */
@@ -111,3 +111,36 @@
     width: 100px;
     cursor: pointer;
 }
+
+.search-bar {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input[type="text"] {
+    width: 200px;
+    padding: 5px;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    z-index: 1000;
+  }
+  
+  .dropdown-option {
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .dropdown-option:hover {
+    background-color: #244d41;
+  }

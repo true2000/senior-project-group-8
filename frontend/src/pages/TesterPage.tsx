@@ -32,6 +32,29 @@ const Popup: React.FC<ImageInfo & { onClose: () => void }> = ({
 };
 
 const TesterPage: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showDropdown, setShowDropdown] = useState(false);
+  // const [options, setOptions] = useState<string[]>([
+  //   'Option 1',
+  //   'Option 2',
+  //   'Option 3',
+  // ]);
+
+  const options = ['Option 1', 'Option 2', 'Option 3'];
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value.toLowerCase();
+    setSearchTerm(value);
+    setShowDropdown(
+      options.some((option) => option.toLowerCase().includes(value)),
+    );
+  };
+
+  const handleOptionClick = (option: string) => {
+    setSearchTerm(option);
+    setShowDropdown(false);
+  };
+
   const [showPopup, setShowPopup] = useState(false);
 
   const handleImageClick = () => {
@@ -97,6 +120,31 @@ const TesterPage: React.FC = () => {
             description="Blue People running around jumping on dragons and doing kinky things with their hair"
             onClose={handleClosePopup}
           />
+        )}
+      </div>
+      <div className="search-bar">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleInputChange}
+          placeholder="Search..."
+        />
+        {showDropdown && (
+          <div className="dropdown">
+            {options
+              .filter((option) =>
+                option.toLowerCase().includes(searchTerm.toLowerCase()),
+              )
+              .map((option, index) => (
+                <div
+                  key={index}
+                  className="dropdown-option"
+                  onClick={() => handleOptionClick(option)}
+                >
+                  {option}
+                </div>
+              ))}
+          </div>
         )}
       </div>
     </div>
