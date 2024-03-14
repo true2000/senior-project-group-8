@@ -1,7 +1,7 @@
 .aboutPageContainer {
     min-height: 20vh;
     min-width: 100vh;
-    background-color: black;
+    background: black;
     color: white;
     display: flex;
     flex-direction: column;
@@ -28,10 +28,11 @@
     display: flex;
     align-items: center; 
     margin-bottom: 20px;
+    margin-left: 25%;
 }
 
 .image {
-    margin-left: 350px;
+    
     width: 200px;
     height: 250px;
     margin-right: 30px;
@@ -39,17 +40,17 @@
 
 .text {
     flex-grow: 1;
-    margin-left: -40%;
 }
 
 .text h1 {
     margin-top: 0;
+    margin-left: -45%;
 }
 
-.aboutPageContainer label {
-    font-size: 2em;
-    margin: 0;
+.text p {
+    width: 500px;
 }
+
 
 .buttonContainer {
     display: flex;
@@ -63,5 +64,6 @@
     margin-bottom: 20px;
     cursor: pointer;
     font-size: 20px;
+    
 
 }

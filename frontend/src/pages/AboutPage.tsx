@@ -67,19 +67,22 @@ const AboutPage: React.FC = () => {
         <div className="introductionProfile">
           <img
             className="image"
-            src={require('../styles/images/image4.jpeg')}
+            src={require('../styles/images/paulsPhoto.jpg')}
             alt="image"
           />
           <div className="text">
             <h1>Paul Richnow</h1>
-            <p>Add Info... </p>
+            <p>
+              Student athlete at the University of Tulsa as a member of the Mens
+              Soccer Team. Majoring in Computer Science. Specialises in
+              front-end work.
+            </p>
           </div>
         </div>
       </div>
       <div className="buttonContainer">
         <button className="button" onClick={handleEnterClick}>
-          {' '}
-          Back{' '}
+          Back
         </button>
       </div>
     </div>
