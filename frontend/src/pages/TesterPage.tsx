@@ -21,6 +21,12 @@ const TesterPage: React.FC = () => {
     navigate('/'); // Navigate to AboutPage path
   };
 
+  const posterPath = '/kyeqWdyUXW608qlYkRqosgbbJyK.jpg';
+  const imageSize = 'w500'; // Choose the appropriate image size
+  const baseURL = 'https://image.tmdb.org/t/p/';
+
+  const fullURL = baseURL + imageSize + posterPath;
+
   return (
     <div className="testerPageContainer">
       <div className="testerPageTaskBar">
@@ -36,6 +42,9 @@ const TesterPage: React.FC = () => {
         <button className="taskButton" onClick={handleEnterClick}>
           Enter
         </button>{' '}
+      </div>
+      <div className="pictureContainer">
+        <img src={fullURL} alt="MoviePoster"></img>
       </div>
     </div>
   );
