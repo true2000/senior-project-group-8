@@ -78,7 +78,7 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="buttonContainer">
+      <div className="aboutButtonContainer">
         <button className="button" onClick={handleEnterClick}>
           Back
         </button>
