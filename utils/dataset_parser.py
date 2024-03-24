@@ -13,17 +13,8 @@ dataset['year'] = dataset['release_date'].dt.year
 # Select only the desired columns: 'id', 'title', 'year', and 'poster_path'
 export_data = dataset[["id", "title", "year", "poster_path"]]
 
-# Directory to save the split files
-#save_dir = "/Users/lukelambert/Desktop/letter"
-os.makedirs(save_dir, exist_ok=True)
+# Define the path for the new CSV file to be saved on your desktop
+#output_file_path = "/Users/lukelambert/Desktop/filtered_movie_dataset.csv"
 
-# Loop through each letter of the alphabet
-for letter in string.ascii_uppercase:
-    # Filter the data for titles starting with the current letter
-    filtered_data = export_data[export_data['title'].str.startswith(letter, na=False)]
-
-    # Define the export path for the current letter
-    export_path = os.path.join(save_dir, f"{letter}.csv")
-
-    # Save the filtered data to a CSV file
-    filtered_data.to_csv(export_path, sep=',', index=False, encoding='utf-8')
+# Export the data to a new CSV file
+export_data.to_csv(output_file_path, index=False)
