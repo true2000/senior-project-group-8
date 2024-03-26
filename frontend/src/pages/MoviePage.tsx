@@ -73,6 +73,7 @@ const MoviePage = () => {
         <h1 className="header">Selected Movies: {selectedMovies.join(', ')}</h1>
       </div>
       <div className="searchContainer">
+        <button onClick={handleEnterClick}>Exit</button>
         <h1>Movie Title Test</h1>
         <input
           type="text"
@@ -95,7 +96,6 @@ const MoviePage = () => {
             </li>
           ))}
         </ul>
-        <button onClick={handleEnterClick}>Exit</button>
       </div>
     </div>
   );
