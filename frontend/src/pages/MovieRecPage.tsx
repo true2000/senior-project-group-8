@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import '../styles/pages/MovieRecPage.css';
-import axios from 'axios';
+import axios from 'axios'; // Use: 'npm install axios' to get the package.
 
 const MovieRecPage: React.FC = () => {
   const navigate = useNavigate();
