@@ -1,9 +1,12 @@
 # To install pytorch run the following type the following into a terminal
 # pip install torch torchvision torchaudio
 import torch
+import torch.nn as nn
+
 # To install pandas run the following command in the terminal
 # pip install pandas
 import pandas as pd
+import numpy as np
 
 # Example progarm with userInput
 
@@ -26,7 +29,7 @@ def example():
               columns ='title', values ='rating') 
     moviemat.head() 
     ratings.sort_values('num of ratings', ascending = False).head(10)
-    print("Enter a movie:\n")
+    print("Enter a movie: try Star Wars (1977) or Liar Liar (1997)\n")
     userInput = input()
     movie_user_ratings = moviemat[userInput] 
     print(movie_user_ratings.head())
@@ -72,6 +75,57 @@ def train():
     interstellar_user_ratings = moviemat['Interstellar'] 
     
     print(interstellar_user_ratings.head())
+def torchModel():
+    path = "model/TMDB_movie_dataset_v11.csv"
+    data_frame = pd.read_csv(path)
+    data_frame = data_frame[['id', 'title', 'vote_average', 'vote_count', 'genres']]
+    print(data_frame.head())
+
+    ratings = pd.DataFrame(data_frame.groupby('title')['vote_average'].mean())
+    ratings['num_of_ratings'] = pd.DataFrame(data_frame.groupby('title')['vote_count'].mean())
+    print(ratings.head())
+
+    print(ratings.sort_values('vote_average', ascending = False).head(10))
+
+    #moviemat = data_frame.pivot_table(index=['title'], values=['id','vote_average','vote_count', 'genres'], aggfunc='mean')
+    moviemat = data_frame.pivot_table(index=['title'], values='vote_count', aggfunc='mean')
+    interstellar_user_ratings = moviemat.loc['Interstellar', 'vote_count']
+    print(interstellar_user_ratings.head())
+
+
+    '''
+    def recommend_movies(movie_title, num_recommendations=5):
+        # Find the movie ID based on the title
+        movie_id = data_frame.loc[data_frame['title'] == movie_title, 'id'].values[0]
+
+        print(movie_id)
+
+        # Calculate similarity scores with other movies
+        similarity_scores = data_frame.corrwith(data_frame['id'])
+        
+        print(similarity_scores)
+
+        # Sort movies by similarity
+        similar_movies = similarity_scores.sort_values(ascending=False)
+
+        print(similar_movies)
+
+        # Exclude the input movie itself
+        similar_movies = similar_movies.drop(movie_id)
+
+        print(similar_movies)
+
+        # Get top N recommendations
+        recommended_movies = data_frame.loc[similar_movies.index][:num_recommendations]
+
+        return recommended_movies[['title', 'vote_average', 'vote_count']]
+
+    # Example usage
+    user_input = input("Enter a movie title: ")
+    recommendations = recommend_movies(user_input)
+    print(recommendations)'''
+
 
 example()   
 #train()
+#torchModel()
