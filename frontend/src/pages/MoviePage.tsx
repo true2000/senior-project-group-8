@@ -1,46 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Papa from 'papaparse';
 import '../styles/pages/MoviePage.css';
 import { useNavigate } from 'react-router-dom';
 
-const movieTitles = [
-  // Chucked in a bunch of other movies to test spacing on page
-  'Movie 1',
-  'Movie 2',
-  'Movie 3',
-  'Shrek',
-  'Godzilla',
-  'YourMumma',
-];
-
-const MoviePage: React.FC = () => {
+const MoviePage = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [selectedMovies, setSelectedMovies] = useState<Array<string>>([]);
+  const [moviesData, setMoviesData] = useState<string[][]>(
+    Array.from({ length: 26 }, () => []),
+  );
+
+  useEffect(() => {
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const moviesDataPromises = alphabet.map((letter) => {
+      return fetch(`/data/${letter}.csv`)
+        .then((response) => response.text())
+        .then((csvData) => {
+          const parsedData = Papa.parse(csvData, { header: false })
+            .data as string[][];
+          return parsedData.map((row) => row[1]); // Assuming movie titles are in the second column
+        });
+    });
+
+    Promise.all(moviesDataPromises).then((dataArrays) => {
+      const structuredData = dataArrays.map((data) => {
+        // Filter out undefined or null values if any
+        return data.filter((title) => title != null && title.trim() !== '');
+      });
+      setMoviesData(structuredData);
+    });
+  }, []);
+
+  const updateSuggestions = () => {
+    if (!searchTerm.trim()) {
+      setSuggestions([]);
+    } else {
+      // Assuming searchStrings function is adapted to use moviesData
+      const filteredSuggestions = searchStrings(searchTerm.trim(), moviesData);
+      setSuggestions(filteredSuggestions);
+    }
+  };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setSearchTerm(value);
+    setSearchTerm(event.target.value);
+  };
 
-    if (!value) {
-      setSuggestions([]);
-      return;
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      updateSuggestions();
     }
-
-    const filteredSuggestions = movieTitles.filter((title) =>
-      title.toLowerCase().includes(value.toLowerCase()),
-    );
-
-    setSuggestions(filteredSuggestions);
   };
 
   const handleCheckboxChange = (movie: string, isChecked: boolean) => {
     setSelectedMovies((prevMovies) => {
       if (isChecked) {
-        // Add movie if checked and not already in the list
         return prevMovies.includes(movie) ? prevMovies : [...prevMovies, movie];
       } else {
-        // Remove movie if unchecked
         return prevMovies.filter((m) => m !== movie);
       }
     });
@@ -62,6 +79,7 @@ const MoviePage: React.FC = () => {
           placeholder="Search for a movie..."
           value={searchTerm}
           onChange={handleSearchChange}
+          onKeyDown={handleKeyPress}
         />
         <ul>
           {suggestions.map((suggestion, index) => (
@@ -84,3 +102,20 @@ const MoviePage: React.FC = () => {
 };
 
 export default MoviePage;
+
+function searchStrings(query: string, moviesData: string[][]): string[] {
+  if (!query) return [];
+
+  // Convert the first character of the query to uppercase to match the array index
+  const firstLetter = query[0].toUpperCase();
+  const index = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(firstLetter);
+
+  // If the first character of the query is not a letter or is not found, return an empty array
+  if (index === -1) return [];
+
+  // Filter the movies in the sub-array that correspond to the first letter of the query
+  // Check if the movie title includes the query string (case-insensitive)
+  return moviesData[index]
+    .filter((item) => item.toLowerCase().includes(query.toLowerCase()))
+    .slice(0, 50);
+}
