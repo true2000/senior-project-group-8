@@ -41,12 +41,19 @@ const AboutPage: React.FC = () => {
         <div className="introductionProfile">
           <img
             className="image"
-            src={require('../styles/images/image2.jpeg')}
+            src={require('../styles/images/lukePhoto.png')}
             alt="image"
           />
           <div className="text">
             <h1>Luke Lambert</h1>
-            <p>Add Info...</p>
+            <p>
+              Luke is a Junior Computer Science and Mathematics student athlete
+              on the track and cross country team at TU. Favorite book: A Short
+              History of Nearly Everything by Bill Bryson. Favorite class at TU:
+              Algorithms. Best TU memory: Competing at the NCAA Division One
+              national championship where the University of Tulsa came 9th
+              place.{' '}
+            </p>
           </div>
         </div>
 
@@ -71,9 +78,10 @@ const AboutPage: React.FC = () => {
           <div className="text">
             <h1>Paul Richnow</h1>
             <p>
-              Student athlete at the University of Tulsa as a member of the Mens
-              Soccer Team. Majoring in Computer Science. Specialises in
-              front-end work.
+              Paul is a Senior Computer Science and student athlete member of
+              the TU Mens soccer Program. Favorite books: Eragon Series by
+              Christopher Paolini. Favorite class at TU: Senior Software.
+              Favourite Movie: District 9 by Neill Blomkamp.
             </p>
           </div>
         </div>
