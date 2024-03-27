@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 import '../styles/pages/TesterPage.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import axios from 'axios';
 
 interface ImageInfo {
   imageUrl: string;
@@ -32,29 +33,20 @@ const Popup: React.FC<ImageInfo & { onClose: () => void }> = ({
 };
 
 const TesterPage: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showDropdown, setShowDropdown] = useState(false);
-  // const [options, setOptions] = useState<string[]>([
-  //   'Option 1',
-  //   'Option 2',
-  //   'Option 3',
-  // ]);
+  const [moviesData, setMoviesData] = useState<string>(''); // Initialize moviesData state as an empty string
 
-  const options = ['Option 1', 'Option 2', 'Option 3'];
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/movies');
+        setMoviesData(JSON.stringify(response.data, null, 2)); // Convert JSON object to pretty-printed string
+      } catch (error) {
+        console.error('Failed to fetch movies:', error);
+      }
+    };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value.toLowerCase();
-    setSearchTerm(value);
-    setShowDropdown(
-      options.some((option) => option.toLowerCase().includes(value)),
-    );
-  };
-
-  const handleOptionClick = (option: string) => {
-    setSearchTerm(option);
-    setShowDropdown(false);
-  };
-
+    fetchMovies();
+  }, []);
   const [showPopup, setShowPopup] = useState(false);
 
   const handleImageClick = () => {
@@ -122,31 +114,7 @@ const TesterPage: React.FC = () => {
           />
         )}
       </div>
-      <div className="search-bar">
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={handleInputChange}
-          placeholder="Search..."
-        />
-        {showDropdown && (
-          <div className="dropdown">
-            {options
-              .filter((option) =>
-                option.toLowerCase().includes(searchTerm.toLowerCase()),
-              )
-              .map((option, index) => (
-                <div
-                  key={index}
-                  className="dropdown-option"
-                  onClick={() => handleOptionClick(option)}
-                >
-                  {option}
-                </div>
-              ))}
-          </div>
-        )}
-      </div>
+      <pre>{moviesData}</pre> {/* Display raw JSON data */}
     </div>
   );
 };
