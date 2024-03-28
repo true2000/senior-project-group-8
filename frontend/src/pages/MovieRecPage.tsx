@@ -1,39 +1,31 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import '../styles/pages/MovieRecPage.css';
-import axios from 'axios'; // Use: 'npm install axios' to get the package.
+import React, { useEffect, useState } from 'react';
 
-const MovieRecPage: React.FC = () => {
-  const navigate = useNavigate();
-  const [moviesData, setMoviesData] = useState<string>(''); // Initialize moviesData state as an empty string
+const MovieRecPage = () => {
+  type Movie = {
+    name: string;
+    image: string;
+  };
+  const [moviesData, setMoviesData] = useState<Movie[]>([]);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:5000/movies');
-        setMoviesData(JSON.stringify(response.data, null, 2)); // Convert JSON object to pretty-printed string
-      } catch (error) {
-        console.error('Failed to fetch movies:', error);
-      }
+    const getData = async () => {
+      const res = await fetch('http://127.0.0.1:5000/movies');
+      const data = await res.json();
+      setMoviesData(data.movies);
     };
 
-    fetchMovies();
+    getData();
   }, []);
 
-  const handleExitClick = () => {
-    navigate('/');
-  };
-
   return (
-    <div className="movieRecContainer">
-      <h1>Movie Recommendations (Raw JSON)</h1>
-      <pre>{moviesData}</pre> {/* Display raw JSON data */}
-      <div className="buttonContainer">
-        <button onClick={handleExitClick}>Exit</button>
-      </div>
+    <div>
+      {moviesData.map((movie, index) => (
+        <div key={index} className="movieRecContainer">
+          <h1>Name: {movie.name}</h1>
+          <img src={movie.image} alt={movie.name} />
+        </div>
+      ))}
     </div>
   );
 };
-
 export default MovieRecPage;

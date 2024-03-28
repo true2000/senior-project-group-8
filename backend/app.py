@@ -21,108 +21,107 @@ swaggerui_blueprint = get_swaggerui_blueprint(
         'app_name': "Movie API"
     },
 )
-
 # Example movie data
 movies = [
     MovieDTO(
         name="Inception",
-        image="/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Interstellar",
-        image="/pbrkL804c8yAv3zBZR4QPEafpAR.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/pbrkL804c8yAv3zBZR4QPEafpAR.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="The Dark Knight",
-        image="/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Avatar",
-        image="/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="The Avengers",
-        image="/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Deadpool",
-        image="/en971MEXui9diirXlogOrPKmsEn.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/en971MEXui9diirXlogOrPKmsEn.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Avengers: Infinity War",
-        image="/mDfJG3LC3Dqb67AZ52x3Z0jU0uB.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/mDfJG3LC3Dqb67AZ52x3Z0jU0uB.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Fight Club",
-        image="/hZkgoQYus5vegHoetLkCJzb17zJ.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/hZkgoQYus5vegHoetLkCJzb17zJ.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Guardians of the Galaxy",
-        image="/uLtVbjvS1O7gXL8lUOwsFOH4man.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/uLtVbjvS1O7gXL8lUOwsFOH4man.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Pulp Fiction",
-        image="/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Forrest Gump",
-        image="/qdIMHd4sEfJSckfVJfKQvisL02a.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/qdIMHd4sEfJSckfVJfKQvisL02a.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Harry Potter and the Philosopher's Stone",
-        image="/hziiv14OpD73u9gAak4XDDfBKa2.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/hziiv14OpD73u9gAak4XDDfBKa2.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Iron Man",
-        image="/cyecB7godJ6kNHGONFjUyVN9OX5.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/cyecB7godJ6kNHGONFjUyVN9OX5.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Django Unchained",
-        image="/5Lbm0gpFDRAPIV1Cth6ln9iL1ou.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/5Lbm0gpFDRAPIV1Cth6ln9iL1ou.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="The Shawshank Redemption",
-        image="/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Avengers: Endgame",
-        image="/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Titanic",
-        image="/rzdPqYx7Um4FUZeD8wpXqjAUcEm.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/rzdPqYx7Um4FUZeD8wpXqjAUcEm.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Joker",
-        image="/hO7KbdvGOtDdeg0W4Y5nKEHeDDh.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/hO7KbdvGOtDdeg0W4Y5nKEHeDDh.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="The Lord of the Rings: The Fellowship of the Ring",
-        image="/x2RS3uTcsJJ9IfjNPcgDmukoEcQ.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/x2RS3uTcsJJ9IfjNPcgDmukoEcQ.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="The Lord of the Rings: The Return of the King",
-        image="/2u7zbn8EudG6kLlBzUYqP8RyFU4.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/2u7zbn8EudG6kLlBzUYqP8RyFU4.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Shutter Island",
-        image="/2nqsOT2AqPkTW81bWaLRtjgjqVM.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/2nqsOT2AqPkTW81bWaLRtjgjqVM.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="The Wolf of Wall Street",
-        image="/63y4XSVTZ7mRzAzkqwi3o0ajDZZ.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/63y4XSVTZ7mRzAzkqwi3o0ajDZZ.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Avengers: Age of Ultron",
-        image="/6YwkGolwdOMNpbTOmLjoehlVWs5.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/6YwkGolwdOMNpbTOmLjoehlVWs5.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="Captain America: Civil War",
-        image="/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/wdwcOBMkt3zmPQuEMxB3FUtMio2.jpg"  # Placeholder image URL
     ),
     MovieDTO(
         name="The Dark Knight Rises",
-        image="/c3OHQncTAnKFhdOTX7D3LTW6son.jpg"  # Placeholder image URL
+        image="https://image.tmdb.org/t/p/w200/c3OHQncTAnKFhdOTX7D3LTW6son.jpg"  # Placeholder image URL
     ),
 ]
 
