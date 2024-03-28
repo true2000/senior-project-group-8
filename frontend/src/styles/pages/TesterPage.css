@@ -144,3 +144,17 @@
   .dropdown-option:hover {
     background-color: #244d41;
   }
+
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.movieRecContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
