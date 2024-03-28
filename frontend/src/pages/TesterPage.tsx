@@ -10,6 +10,11 @@ interface ImageInfo {
   description: string;
 }
 
+interface Movie {
+  name: string;
+  image: string;
+}
+
 const Popup: React.FC<ImageInfo & { onClose: () => void }> = ({
   imageUrl,
   title,
@@ -33,13 +38,15 @@ const Popup: React.FC<ImageInfo & { onClose: () => void }> = ({
 };
 
 const TesterPage: React.FC = () => {
-  const [moviesData, setMoviesData] = useState<string>(''); // Initialize moviesData state as an empty string
+  const [movies, setMovies] = useState<Movie[]>([]); // Initialize moviesData state as an empty string
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/movies');
-        setMoviesData(JSON.stringify(response.data, null, 2)); // Convert JSON object to pretty-printed string
+        const response = await axios.get<{ movies: Movie[] }>(
+          'http://127.0.0.1:5000/movies',
+        );
+        setMovies(response.data.movies);
       } catch (error) {
         console.error('Failed to fetch movies:', error);
       }
@@ -114,7 +121,18 @@ const TesterPage: React.FC = () => {
           />
         )}
       </div>
-      <pre>{moviesData}</pre> {/* Display raw JSON data */}
+      <div className="movieRecContainer">
+        <h1>Movie Recommendations (Raw JSON)</h1>
+        {movies.map((movie, index) => (
+          <div key={index}>
+            <h2>{movie.name}</h2>
+            <img
+              src={`${baseURL}${imageSize}${movie.image}`}
+              alt={movie.name}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
