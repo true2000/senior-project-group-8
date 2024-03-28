@@ -152,20 +152,9 @@
     margin-top: 20px;
 }
 
-.movie-item {
-    margin: 10px;
-    text-align: center;
+.movieRecContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.movie-image {
-    width: 150px; /* Adjust image width as needed */
-    height: auto; /* Automatically adjust height to maintain aspect ratio */
-    border-radius: 8px; /* Add rounded corners to the image */
-}
-
-.movie-name {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px; /* Adjust font size as needed */
-    color: #333; /* Set text color */
-}
