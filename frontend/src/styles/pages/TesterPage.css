@@ -89,6 +89,7 @@
   white-space: nowrap; /* Prevent items from wrapping to new lines */
   -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
 }
+
 .movieRecContainer image {
   justify-content: center;
 }

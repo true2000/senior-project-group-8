@@ -1,15 +1,41 @@
-.movieRecContainer {
-    min-height: 20vh;
+.movieRecPageContainer {
+    min-height: 100vh;
     min-width: 100vh;
-    width: 100vw;
-    height: 100vh;
     background: linear-gradient(to bottom, #d8581d, #de3dd3);
-    color: white !important;
+    color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    min-width: 50px;
 }
+
+.movieRecHeader {
+    display: flex;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    padding-bottom: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.movieRecHeader h1 {
+
+}
+
+.backButton {
+
+}
+
+.movieRecContainer {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent items from wrapping to new lines */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+
+.movieRecContainer image {
+    justify-content: center;
+  }
 
 .buttonContainer {
     align-items: center;
