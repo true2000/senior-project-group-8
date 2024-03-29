@@ -30,38 +30,6 @@
     margin-right: 10px; /* Add space between buttons */
 }
 
-.introContainer {
-    margin-top: 30px;
-    align-items: center;
-    text-align: center;
-}
-
-/* Basic setup for all the texts for home page */
-.introContainer h1 { 
-    font-size: 60px;
-    margin-bottom: 60px;
-}
-
-.introContainer h2 {
-    font-size: 30px;
-}
-
-.introContainer body {
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
-.introContainer p {
-    margin-top: 40px;
-    font-size: 15px;
-}
-
-.introContainer button {
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-}
-
 .pictureContainer {
     display: flex;
     align-items: center;
@@ -112,49 +80,15 @@
     cursor: pointer;
 }
 
-.search-bar {
-    position: relative;
-    justify-content: center;
-    align-items: center;
-  }
   
-  input[type="text"] {
-    width: 200px;
-    padding: 5px;
-  }
-  
-  .dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
-    z-index: 1000;
-  }
-  
-  .dropdown-option {
-    color: black;
-    padding: 5px;
-    cursor: pointer;
-  }
-  
-  .dropdown-option:hover {
-    background-color: #244d41;
-  }
-
-  .movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
 
 .movieRecContainer {
     display: flex;
     align-items: center;
-    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+.movieRecContainer image {
+  justify-content: center;
 }
 
