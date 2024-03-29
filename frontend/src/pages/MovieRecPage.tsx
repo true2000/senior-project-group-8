@@ -78,9 +78,31 @@ const MovieRecPage = () => {
         </button>
         <h1>Find Your Favourite Movies</h1>
       </div>
-      <div>
+      <div className="genreHeader">
         {' '}
         <h1>Movie Recommendations (Raw JSON)</h1>
+      </div>
+      <div className="movieRecContainer">
+        {movies.map((movie, index) => (
+          <div key={index} className="movie-item">
+            <img
+              src={movie.image}
+              alt={movie.name}
+              onClick={() => handleMovieClick(movie)}
+            />
+          </div>
+        ))}
+        {selectedMovie && (
+          <div className="popup">
+            <button onClick={handleClosingPopup}>Close</button>
+            <h2>{selectedMovie.name}</h2>
+            <img src={selectedMovie.image} alt={selectedMovie.name} />
+          </div>
+        )}
+        {isLoading && <div className="loader">Loading...</div>}
+      </div>
+      <div className="genreHeader">
+        <h1>Another Genre</h1>
       </div>
       <div className="movieRecContainer">
         {movies.map((movie, index) => (

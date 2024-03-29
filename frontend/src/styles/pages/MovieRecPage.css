@@ -5,12 +5,10 @@
     color: white;
     display: flex;
     flex-direction: column;
-    min-width: 50px;
 }
 
 .movieRecHeader {
     display: flex;
-    text-align: center;
     font-size: 30px;
     color: white;
     padding-bottom: 40px;
@@ -19,7 +17,7 @@
 
 .backButton {
     margin-left: 10px;
-    margin-right: 21%;
+    margin-right: 21.5%;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -43,4 +41,8 @@
     display: flex;
     margin-top: 30px;
     cursor: pointer;
+}
+
+.genreHeader {
+    margin-left: 10px;
 }
