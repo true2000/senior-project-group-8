@@ -1,7 +1,8 @@
 .testerPageContainer {
     min-height: 80vh;
     width: 100vw;
-    background-color: black;
+    height: 100vh;
+    background: linear-gradient(to bottom, #d8581d, #de3dd3);
     color: white;
     display: flex;
     flex-direction: column;
