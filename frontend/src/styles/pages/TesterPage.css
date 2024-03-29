@@ -83,12 +83,39 @@
   
 
 .movieRecContainer {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping to new lines */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
 }
 .movieRecContainer image {
   justify-content: center;
 }
+
+.movie-item {
+  flex-shrink: 0; /* Prevent items from shrinking */
+  margin-right: 10px; /* Add spacing between items */
+  cursor: pointer;
+}
+
+.popup {
+  text-align: center;
+  color: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 
