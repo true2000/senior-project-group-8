@@ -183,6 +183,31 @@ const TesterPage: React.FC = () => {
         )}
         {isLoading && <div className="loader">Loading...</div>}
       </div>
+      <div>
+        <h1>
+          Testing what it would look like if we were to bring in another genre
+          or so
+        </h1>
+      </div>
+      <div className="movieRecContainer">
+        {movies.map((movie, index) => (
+          <div key={index} className="movie-item">
+            <img
+              src={movie.image}
+              alt={movie.name}
+              onClick={() => handleMovieClick(movie)}
+            />
+          </div>
+        ))}
+        {selectedMovie && (
+          <div className="popup">
+            <button onClick={handleClosingPopup}>Close</button>
+            <h2>{selectedMovie.name}</h2>
+            <img src={selectedMovie.image} alt={selectedMovie.name} />
+          </div>
+        )}
+        {isLoading && <div className="loader">Loading...</div>}
+      </div>
     </div>
   );
 };
