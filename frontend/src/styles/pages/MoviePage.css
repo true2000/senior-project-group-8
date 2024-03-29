@@ -1,6 +1,6 @@
 .moviePageContainer {
-    min-height: 10vh;
-    background-color: black;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #d8581d, #de3dd3);
     color: white;
     display: flex;
     flex-direction: column;
@@ -10,14 +10,14 @@
 
 .headerContainer{
     margin-left: 20px;
-    margin-bottom: auto;
+
     padding-bottom: 10%;
 
 }
 
 .searchContainer {
     text-align: center;
-    margin: auto;
+
 }
 
 

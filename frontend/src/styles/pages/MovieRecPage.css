@@ -1,7 +1,9 @@
 .movieRecContainer {
     min-height: 20vh;
     min-width: 100vh;
-    background-color: rgb(0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #d8581d, #de3dd3);
     color: white !important;
     display: flex;
     flex-direction: column;

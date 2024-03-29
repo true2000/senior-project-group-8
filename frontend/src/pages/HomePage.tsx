@@ -37,9 +37,9 @@ const HomePage: React.FC = () => {
       <div className="homeIntroContainer">
         <h1>IMAGE GOES HERE</h1>
         <h2>FlickFinder</h2>
-        <body>
+        <h3>
           Find your next Flick based on movies that you are currently enjoying
-        </body>
+        </h3>
         <button className="enterButton" onClick={handleEnterClick}>
           Enter
         </button>{' '}

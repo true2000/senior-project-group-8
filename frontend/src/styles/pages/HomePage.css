@@ -1,7 +1,7 @@
 .homePageContainer {
-    min-height: 80vh;
-    width: 100vw;
-    background-color: black;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: linear-gradient(to bottom, #d8581d, #de3dd3);
     color: white;
     display: flex;
     flex-direction: column;
@@ -46,14 +46,13 @@
     font-size: 30px;
 }
 
-.homeIntroContainer body {
-    font-size: 20px;
-    margin-bottom: 30px;
+.homeIntroContainer h3 {
+    font-size: 22px;
 }
 
 .homeIntroContainer p {
     margin-top: 40px;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .homeIntroContainer button {
