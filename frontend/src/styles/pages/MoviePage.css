@@ -20,9 +20,13 @@
 
 .headerContainer {
     display: flex;
-    flex-direction: column; /* Stack the header and the movie list vertically */
-    align-items: start; /* Align items to the start */
+
+    align-items: center; /* Align items to the start */
     gap: 10px; /* Adds space between the header and the list */
+}
+
+.header {
+    margin-right: 10px;
 }
 
 .moviesList {
@@ -31,10 +35,18 @@
     flex-wrap: wrap; /* Wrap items to the next line if not enough space */
     gap: 10px; /* Space between movie items */
     align-items: center; /* Vertically align items in the center */
+    margin-top: 10px;
 }
 
 .movieItem {
     white-space: nowrap; /* Prevent the movie title and path from wrapping */
+    margin: 0 10px;
+
+}
+
+.selectedImages {
+    width: 80px;
+    height: auto;
 }
 
 

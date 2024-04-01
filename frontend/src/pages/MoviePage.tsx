@@ -96,7 +96,10 @@ const MoviePage = () => {
         <div className="moviesList">
           {selectedMovies.map((movie, index) => (
             <div key={index} className="movieItem">
-              <img src={fullUrlSelected + movie.posterPath} />
+              <img
+                className="selectedImages"
+                src={fullUrlSelected + movie.posterPath}
+              />
             </div>
           ))}
         </div>
