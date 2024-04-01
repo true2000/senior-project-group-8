@@ -3,12 +3,19 @@ import Papa from 'papaparse';
 import '../styles/pages/MoviePage.css';
 import { useNavigate } from 'react-router-dom';
 
+interface Movie {
+  id: string;
+  title: string;
+  year: string;
+  posterPath: string;
+}
+
 const MoviePage = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [selectedMovies, setSelectedMovies] = useState<Array<string>>([]);
-  const [moviesData, setMoviesData] = useState<string[][]>(
+  const [suggestions, setSuggestions] = useState<Movie[]>([]);
+  const [selectedMovies, setSelectedMovies] = useState<Movie[]>([]);
+  const [moviesData, setMoviesData] = useState<Movie[][]>(
     Array.from({ length: 26 }, () => []),
   );
 
@@ -20,14 +27,21 @@ const MoviePage = () => {
         .then((csvData) => {
           const parsedData = Papa.parse(csvData, { header: false })
             .data as string[][];
-          return parsedData.map((row) => row[1]); // Assuming movie titles are in the second column
+          return parsedData
+            .map((row) => ({
+              id: row[0] || '', // Providing default empty string if undefined
+              title: row[1] ? row[1].trim() : '', // Check for undefined before trim
+              year: row[2] || '',
+              posterPath: row[3] || '',
+            }))
+            .filter((movie) => movie.title); // Filter out movies without titles
         });
     });
 
     Promise.all(moviesDataPromises).then((dataArrays) => {
       const structuredData = dataArrays.map((data) => {
-        // Filter out undefined or null values if any
-        return data.filter((title) => title != null && title.trim() !== '');
+        // Since we're already filtering out undefined titles, this step might be redundant
+        return data.filter((movie) => movie.title && movie.title.trim() !== '');
       });
       setMoviesData(structuredData);
     });
@@ -53,12 +67,14 @@ const MoviePage = () => {
     }
   };
 
-  const handleCheckboxChange = (movie: string, isChecked: boolean) => {
+  const handleCheckboxChange = (movie: Movie, isChecked: boolean) => {
     setSelectedMovies((prevMovies) => {
       if (isChecked) {
-        return prevMovies.includes(movie) ? prevMovies : [...prevMovies, movie];
+        return prevMovies.find((m) => m.id === movie.id)
+          ? prevMovies
+          : [...prevMovies, movie];
       } else {
-        return prevMovies.filter((m) => m !== movie);
+        return prevMovies.filter((m) => m.id !== movie.id);
       }
     });
   };
@@ -70,8 +86,16 @@ const MoviePage = () => {
   return (
     <div className="moviePageContainer">
       <div className="headerContainer">
-        <h1 className="header">Selected Movies: {selectedMovies.join(', ')}</h1>
+        <h1 className="header">Selected Movies:</h1>
+        <div className="moviesList">
+          {selectedMovies.map((movie, index) => (
+            <div key={index} className="movieItem">
+              <span>{movie.title}</span>: <span>{movie.posterPath}</span>
+            </div>
+          ))}
+        </div>
       </div>
+
       <div className="searchContainer">
         <button onClick={handleEnterClick}>Exit</button>
         <h1>Movie Title Test</h1>
@@ -85,10 +109,12 @@ const MoviePage = () => {
         <ul>
           {suggestions.map((suggestion, index) => (
             <li key={index}>
-              {suggestion}
+              {suggestion.title}
               <input
                 type="checkbox"
-                checked={selectedMovies.includes(suggestion)}
+                checked={selectedMovies.some(
+                  (movie) => movie.id === suggestion.id,
+                )}
                 onChange={(e) =>
                   handleCheckboxChange(suggestion, e.target.checked)
                 }
@@ -103,19 +129,14 @@ const MoviePage = () => {
 
 export default MoviePage;
 
-function searchStrings(query: string, moviesData: string[][]): string[] {
+function searchStrings(query: string, moviesData: Movie[][]): Movie[] {
   if (!query) return [];
 
-  // Convert the first character of the query to uppercase to match the array index
   const firstLetter = query[0].toUpperCase();
   const index = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(firstLetter);
-
-  // If the first character of the query is not a letter or is not found, return an empty array
   if (index === -1) return [];
 
-  // Filter the movies in the sub-array that correspond to the first letter of the query
-  // Check if the movie title includes the query string (case-insensitive)
   return moviesData[index]
-    .filter((item) => item.toLowerCase().includes(query.toLowerCase()))
+    .filter((movie) => movie.title.toLowerCase().includes(query.toLowerCase()))
     .slice(0, 50);
 }

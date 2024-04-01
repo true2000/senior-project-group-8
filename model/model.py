@@ -8,6 +8,7 @@ import torch.nn as nn
 import pandas as pd
 import numpy as np
 
+
 # Example progarm with userInput
 
 def example():
@@ -16,37 +17,38 @@ def example():
     # useing the idea of collaborative filtering
     data_frame = pd.read_csv(path, sep='\t', names=column_names)
     data_frame.head()
-    movie_titles = pd.read_csv('https://media.geeksforgeeks.org/wp-content/uploads/Movie_Id_Titles.csv') 
+    movie_titles = pd.read_csv('https://media.geeksforgeeks.org/wp-content/uploads/Movie_Id_Titles.csv')
     movie_titles.head()
-    data = pd.merge(data_frame, movie_titles, on='item_id') 
+    data = pd.merge(data_frame, movie_titles, on='item_id')
     data.head()
     data.groupby('title')['rating'].mean().sort_values(ascending=False).head()
     data.groupby('title')['rating'].count().sort_values(ascending=False).head()
     ratings = pd.DataFrame(data.groupby('title')['rating'].mean())
     ratings['num of ratings'] = pd.DataFrame(data.groupby('title')['rating'].count())
     ratings.head
-    moviemat = data.pivot_table(index ='user_id', 
-              columns ='title', values ='rating') 
-    moviemat.head() 
-    ratings.sort_values('num of ratings', ascending = False).head(10)
+    moviemat = data.pivot_table(index='user_id',
+                                columns='title', values='rating')
+    moviemat.head()
+    ratings.sort_values('num of ratings', ascending=False).head(10)
     print("Enter a movie: try Star Wars (1977) or Liar Liar (1997)\n")
     userInput = input()
-    movie_user_ratings = moviemat[userInput] 
+    movie_user_ratings = moviemat[userInput]
     print(movie_user_ratings.head())
 
     # analysing correlation with similar movies 
-    similar_to_movie = moviemat.corrwith(movie_user_ratings) 
-    corr_movie = pd.DataFrame(similar_to_movie, columns =['Correlation']) 
-    corr_movie.dropna(inplace = True) 
+    similar_to_movie = moviemat.corrwith(movie_user_ratings)
+    corr_movie = pd.DataFrame(similar_to_movie, columns=['Correlation'])
+    corr_movie.dropna(inplace=True)
     print(corr_movie.head())
 
     # Similar movies to user selection
-    corr_movie.sort_values('Correlation', ascending = False).head(10) 
-    corr_movie = corr_movie.join(ratings['num of ratings']) 
-    
-    corr_movie.head() 
-    
-    print(corr_movie[corr_movie['num of ratings']>100].sort_values('Correlation', ascending = False).head())
+    corr_movie.sort_values('Correlation', ascending=False).head(10)
+    corr_movie = corr_movie.join(ratings['num of ratings'])
+
+    corr_movie.head()
+
+    print(corr_movie[corr_movie['num of ratings'] > 100].sort_values('Correlation', ascending=False).head())
+
 
 def train():
     path = "model/TMDB_movie_dataset_v11.csv"
@@ -57,24 +59,26 @@ def train():
     print(data_frame.groupby('title')['vote_average'].count().sort_values(ascending=False).head())
 
     # creating dataframe with 'rating' count values 
-    ratings = pd.DataFrame(data_frame.groupby('title')['vote_average'].mean())  
-    ratings['num of ratings'] = pd.DataFrame(data_frame.groupby('title')['vote_average'].count()) 
+    ratings = pd.DataFrame(data_frame.groupby('title')['vote_average'].mean())
+    ratings['num of ratings'] = pd.DataFrame(data_frame.groupby('title')['vote_average'].count())
     print(ratings.head())
 
     # Sorting values according to  
     # the 'num of rating column'
     # running into issue with negative dimensions
     print(ratings['num of ratings'].to_numpy())
-    moviemat = data_frame.pivot_table(index ='id', 
-                columns='title', values = 'vote_count') 
-    
-    moviemat.head()
-    
-    print(ratings.sort_values('num of ratings', ascending = False).head(10))
+    moviemat = data_frame.pivot_table(index='id',
+                                      columns='title', values='vote_count')
 
-    interstellar_user_ratings = moviemat['Interstellar'] 
-    
+    moviemat.head()
+
+    print(ratings.sort_values('num of ratings', ascending=False).head(10))
+
+    interstellar_user_ratings = moviemat['Interstellar']
+
     print(interstellar_user_ratings.head())
+
+
 def torchModel():
     path = "model/TMDB_movie_dataset_v11.csv"
     data_frame = pd.read_csv(path)
@@ -85,13 +89,12 @@ def torchModel():
     ratings['num_of_ratings'] = pd.DataFrame(data_frame.groupby('title')['vote_count'].mean())
     print(ratings.head())
 
-    print(ratings.sort_values('vote_average', ascending = False).head(10))
+    print(ratings.sort_values('vote_average', ascending=False).head(10))
 
-    #moviemat = data_frame.pivot_table(index=['title'], values=['id','vote_average','vote_count', 'genres'], aggfunc='mean')
+    # moviemat = data_frame.pivot_table(index=['title'], values=['id','vote_average','vote_count', 'genres'], aggfunc='mean')
     moviemat = data_frame.pivot_table(index=['title'], values='vote_count', aggfunc='mean')
     interstellar_user_ratings = moviemat.loc['Interstellar', 'vote_count']
     print(interstellar_user_ratings.head())
-
 
     '''
     def recommend_movies(movie_title, num_recommendations=5):
@@ -126,6 +129,6 @@ def torchModel():
     print(recommendations)'''
 
 
-example()   
-#train()
-#torchModel()
+example()
+# train()
+# torchModel()

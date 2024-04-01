@@ -8,13 +8,6 @@
 
 }
 
-.headerContainer{
-    margin-left: 20px;
-
-    padding-bottom: 10%;
-
-}
-
 .searchContainer {
     text-align: center;
 
@@ -23,6 +16,25 @@
 
 .moviePageContainer ul {
     list-style-type: none; /* Removes bullet points */
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column; /* Stack the header and the movie list vertically */
+    align-items: start; /* Align items to the start */
+    gap: 10px; /* Adds space between the header and the list */
+}
+
+.moviesList {
+    display: flex;
+    flex-direction: row; /* Display movie items in a row */
+    flex-wrap: wrap; /* Wrap items to the next line if not enough space */
+    gap: 10px; /* Space between movie items */
+    align-items: center; /* Vertically align items in the center */
+}
+
+.movieItem {
+    white-space: nowrap; /* Prevent the movie title and path from wrapping */
 }
 
 
