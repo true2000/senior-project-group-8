@@ -9,6 +9,7 @@
 }
 
 .searchContainer {
+    margin-top: 50px;
     text-align: center;
 
 }
@@ -20,7 +21,7 @@
 
 .headerContainer {
     display: flex;
-
+    margin-top: 15px;
     align-items: center; /* Align items to the start */
     gap: 10px; /* Adds space between the header and the list */
 }
@@ -35,7 +36,7 @@
     flex-wrap: wrap; /* Wrap items to the next line if not enough space */
     gap: 10px; /* Space between movie items */
     align-items: center; /* Vertically align items in the center */
-    margin-top: 10px;
+
 }
 
 .movieItem {
