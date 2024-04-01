@@ -83,6 +83,12 @@ const MoviePage = () => {
     navigate('/'); // Navigate to your target path
   };
 
+  const imageSize = 'w200'; // Choose the appropriate image size
+
+  const baseURL = 'https://image.tmdb.org/t/p/'; //base URL for any of the pathways
+
+  const fullUrlSelected = baseURL + imageSize;
+
   return (
     <div className="moviePageContainer">
       <div className="headerContainer">
@@ -90,7 +96,7 @@ const MoviePage = () => {
         <div className="moviesList">
           {selectedMovies.map((movie, index) => (
             <div key={index} className="movieItem">
-              <span>{movie.title}</span>: <span>{movie.posterPath}</span>
+              <img src={fullUrlSelected + movie.posterPath} />
             </div>
           ))}
         </div>
