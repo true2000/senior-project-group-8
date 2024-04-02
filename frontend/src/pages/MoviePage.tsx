@@ -29,42 +29,38 @@ const MoviePage = () => {
             .data as string[][];
           return parsedData
             .map((row) => ({
-              id: row[0] || '', // Providing default empty string if undefined
-              title: row[1] ? row[1].trim() : '', // Check for undefined before trim
+              id: row[0] || '',
+              title: row[1] ? row[1].trim() : '',
               year: row[2] || '',
               posterPath: row[3] || '',
             }))
-            .filter((movie) => movie.title); // Filter out movies without titles
+            .filter((movie) => movie.title);
         });
     });
 
     Promise.all(moviesDataPromises).then((dataArrays) => {
       const structuredData = dataArrays.map((data) => {
-        // Since we're already filtering out undefined titles, this step might be redundant
         return data.filter((movie) => movie.title && movie.title.trim() !== '');
       });
       setMoviesData(structuredData);
     });
   }, []);
 
+  useEffect(() => {
+    updateSuggestions();
+  }, [searchTerm]); // This effect listens for changes to searchTerm
+
   const updateSuggestions = () => {
     if (!searchTerm.trim()) {
       setSuggestions([]);
-    } else {
-      // Assuming searchStrings function is adapted to use moviesData
-      const filteredSuggestions = searchStrings(searchTerm.trim(), moviesData);
-      setSuggestions(filteredSuggestions);
+      return;
     }
+    const filteredSuggestions = searchStrings(searchTerm.trim(), moviesData);
+    setSuggestions(filteredSuggestions);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
-  };
-
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      updateSuggestions();
-    }
   };
 
   const handleCheckboxChange = (movie: Movie, isChecked: boolean) => {
@@ -113,7 +109,6 @@ const MoviePage = () => {
           placeholder="Search for a movie..."
           value={searchTerm}
           onChange={handleSearchChange}
-          onKeyDown={handleKeyPress}
         />
         <ul>
           {suggestions.map((suggestion, index) => (
