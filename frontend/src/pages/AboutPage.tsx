@@ -65,7 +65,7 @@ const AboutPage: React.FC = () => {
           />
           <div className="text">
             <h1>Ryan Nock</h1>
-            <p>Add Info...</p>
+            <p>Add Info....</p>
           </div>
         </div>
 
