@@ -9,34 +9,10 @@ const HomePage: React.FC = () => {
     navigate('/movies'); // Navigate to your MoviePage path
   };
 
-  const handleAboutClick = () => {
-    navigate('/about'); // Navigate to AboutPage path
-  };
-
-  const handleMovieRecClick = () => {
-    navigate('/movieRec'); // Navigate to AboutPage path
-  };
-
-  const handleTesterClick = () => {
-    navigate('/tester'); // Navigate to AboutPage path
-  };
-
   return (
     <div className="homePageContainer">
-      <div className="homePageTaskBar">
-        <button className="homeTaskButton" onClick={handleMovieRecClick}>
-          Movie Rec
-        </button>
-        <button className="homeTaskButton" onClick={handleTesterClick}>
-          Tester
-        </button>
-        <button className="homeTaskButton" onClick={handleAboutClick}>
-          About
-        </button>
-      </div>
       <div className="homeIntroContainer">
-        <h1>IMAGE GOES HERE</h1>
-        <h2>FlickFinder</h2>
+        <h1>FLICK FINDER</h1>
         <h3>
           Find your next Flick based on movies that you are currently enjoying
         </h3>

@@ -78,10 +78,10 @@ const AboutPage: React.FC = () => {
           <div className="text">
             <h1>Paul Richnow</h1>
             <p>
-              Paul is a Senior Computer Science and student athlete member of
-              the TU Mens soccer Program. Favorite books: Eragon Series by
-              Christopher Paolini. Favorite class at TU: Senior Software.
-              Favourite Movie: District 9 by Neill Blomkamp.
+              Paul is a Senior Computer Science student athlete member of the TU
+              Mens soccer Program. Favorite books: Eragon Series by Christopher
+              Paolini. Favorite class at TU: Senior Software. Favourite Movie:
+              District 9 by Neill Blomkamp.
             </p>
           </div>
         </div>

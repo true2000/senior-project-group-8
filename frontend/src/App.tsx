@@ -15,7 +15,11 @@ const App: React.FC = () => {
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
             <a className="navbar-brand" href="home">
-              Navbar
+              <img
+                src={require('../src/styles/images/HomeLogo.png')}
+                alt="NavBar Logo"
+                style={{ width: '70px', height: 'auto' }}
+              />
             </a>
             <button
               className="navbar-toggler"
@@ -28,7 +32,7 @@ const App: React.FC = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 <a
                   className="nav-link active"
@@ -37,14 +41,15 @@ const App: React.FC = () => {
                 >
                   Movies
                 </a>
+              </div>
+            </div>
+            <div
+              className="collapse navbar-collapse justify-content-end"
+              id="navbarNavAltMarkup"
+            >
+              <div className="navbar-nav">
                 <a className="nav-link" href="about">
                   About
-                </a>
-                <a className="nav-link" href="#">
-                  Pricing
-                </a>
-                <a className="nav-link disabled" aria-disabled="true">
-                  Disabled
                 </a>
               </div>
             </div>
