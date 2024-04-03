@@ -106,7 +106,7 @@ const MoviePage = () => {
         <ul>
           {suggestions.map((suggestion, index) => (
             <li key={index}>
-              {suggestion.title}
+              {suggestion.title + '\t(' + suggestion.year.slice(0, 4) + ')'}
               <input
                 type="checkbox"
                 checked={selectedMovies.some(
@@ -135,5 +135,5 @@ function searchStrings(query: string, moviesData: Movie[][]): Movie[] {
 
   return moviesData[index]
     .filter((movie) => movie.title.toLowerCase().includes(query.toLowerCase()))
-    .slice(0, 50);
+    .slice(0, 25);
 }
