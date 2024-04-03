@@ -13,7 +13,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-          <div className="container-fluid">
+          <div className="container-fluid" style={{ marginLeft: '20px' }}>
             <a className="navbar-brand" href="/">
               <img
                 src={require('../src/styles/images/HomeLogo.png')}
@@ -53,6 +53,7 @@ const App: React.FC = () => {
             <div
               className="collapse navbar-collapse justify-content-end"
               id="navbarNavAltMarkup"
+              style={{ marginRight: '20px' }}
             >
               <div className="navbar-nav">
                 <a className="nav-link" href="about">
