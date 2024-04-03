@@ -80,7 +80,7 @@ const MoviePage = () => {
   };
 
   const handleEnterClick = () => {
-    navigate('/'); // Navigate to your target path
+    navigate('/home'); // Navigate to your target path
   };
 
   const imageSize = 'w200'; // Choose the appropriate image size

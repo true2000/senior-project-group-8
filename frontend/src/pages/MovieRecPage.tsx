@@ -12,7 +12,7 @@ const MovieRecPage = () => {
   const navigate = useNavigate();
 
   const handleBackButton = () => {
-    navigate('/');
+    navigate('/home');
   };
 
   const [movies, setMovies] = useState<Movie[]>([]); // Initialize moviesData state as an empty string
