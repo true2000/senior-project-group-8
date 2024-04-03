@@ -100,7 +100,7 @@ const MoviePage = () => {
       </div>
 
       <div className="searchContainer">
-        <h1>Movie Title Test</h1>
+        <h1>Add Your Movie Titles</h1>
         <input
           type="text"
           placeholder="Search for a movie..."

@@ -24,6 +24,7 @@
     margin-top: 15px;
     align-items: center; /* Align items to the start */
     gap: 10px; /* Adds space between the header and the list */
+    margin-left: 15px;
 }
 
 .header {
