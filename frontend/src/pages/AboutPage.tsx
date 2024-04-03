@@ -1,14 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 import '../styles/pages/AboutPage.css';
 
 const AboutPage: React.FC = () => {
-  const navigate = useNavigate(); // Hook for navigation
-
-  const handleEnterClick = () => {
-    navigate('/home'); // Navigate to your target path
-  };
-
   return (
     <div className="aboutPageContainer">
       <div className="aboutHeaderContainer">
@@ -69,7 +63,7 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="introductionProfile">
+        <div className="introductionProfileFinal">
           <img
             className="image"
             src={require('../styles/images/paulsPhoto.jpg')}
@@ -85,11 +79,6 @@ const AboutPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
-      <div className="aboutButtonContainer">
-        <button className="button" onClick={handleEnterClick}>
-          Back
-        </button>
       </div>
     </div>
   );

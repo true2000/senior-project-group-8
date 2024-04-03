@@ -9,17 +9,23 @@
 }
 
 .aboutHeaderContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 .aboutHeader {
-    font-size: 50px;
+    font-size: 70px;
 }
 
 .purposeContainer {
     text-align: left;
     margin-left: 20px;
     margin-bottom: 30px;
+}
+
+.purposeContainer h2 {
+    font-size: 28px;
 }
 
 .introductionProfile {
@@ -64,4 +70,14 @@
     margin-bottom: 20px;
     font-size: 20px;
     cursor: pointer;
+}
+
+.introductionProfileFinal {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center; 
+    margin-bottom: 80px;
+    margin-left: 25%;
+
 }
