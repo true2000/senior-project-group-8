@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import '../styles/pages/MoviePage.css';
-import { useNavigate } from 'react-router-dom';
 
 interface Movie {
   id: string;
@@ -11,7 +10,6 @@ interface Movie {
 }
 
 const MoviePage = () => {
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<Movie[]>([]);
   const [selectedMovies, setSelectedMovies] = useState<Movie[]>([]);
@@ -75,10 +73,6 @@ const MoviePage = () => {
     });
   };
 
-  const handleEnterClick = () => {
-    navigate('/'); // Navigate to your target path
-  };
-
   const imageSize = 'w200'; // Choose the appropriate image size
 
   const baseURL = 'https://image.tmdb.org/t/p/'; //base URL for any of the pathways
@@ -102,8 +96,7 @@ const MoviePage = () => {
       </div>
 
       <div className="searchContainer">
-        <button onClick={handleEnterClick}>Exit</button>
-        <h1>Movie Title Test</h1>
+        <h1>Add Your Movie Titles</h1>
         <input
           type="text"
           placeholder="Search for a movie..."

@@ -1,18 +1,23 @@
 .movieRecPageContainer {
     min-height: 100vh;
     min-width: 100vh;
-    background: linear-gradient(to bottom, #d8581d, #de3dd3);
+    background: black;
     color: white;
     display: flex;
     flex-direction: column;
 }
 
 .movieRecHeader {
+    margin-top: 20px;
     display: flex;
-    font-size: 30px;
     color: white;
     padding-bottom: 40px;
     align-items: center;
+    justify-content: center;
+}
+
+.movieRecHeader h1 {
+    font-size: 60px;
 }
 
 .backButton {
@@ -29,6 +34,7 @@
     overflow-x: auto; /* Enable horizontal scrolling */
     white-space: nowrap; /* Prevent items from wrapping to new lines */
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    margin-bottom: 20px;
 }
 
 .movieRecContainer image {
@@ -45,4 +51,9 @@
 
 .genreHeader {
     margin-left: 10px;
+
 }
+
+.genreHeader h1 {
+    font-size: 30px;
+} 

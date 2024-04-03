@@ -1,14 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 import '../styles/pages/AboutPage.css';
 
 const AboutPage: React.FC = () => {
-  const navigate = useNavigate(); // Hook for navigation
-
-  const handleEnterClick = () => {
-    navigate('/'); // Navigate to your target path
-  };
-
   return (
     <div className="aboutPageContainer">
       <div className="aboutHeaderContainer">
@@ -65,11 +59,11 @@ const AboutPage: React.FC = () => {
           />
           <div className="text">
             <h1>Ryan Nock</h1>
-            <p>Add Info...</p>
+            <p>Add Info....</p>
           </div>
         </div>
 
-        <div className="introductionProfile">
+        <div className="introductionProfileFinal">
           <img
             className="image"
             src={require('../styles/images/paulsPhoto.jpg')}
@@ -78,18 +72,13 @@ const AboutPage: React.FC = () => {
           <div className="text">
             <h1>Paul Richnow</h1>
             <p>
-              Paul is a Senior Computer Science and student athlete member of
-              the TU Mens soccer Program. Favorite books: Eragon Series by
-              Christopher Paolini. Favorite class at TU: Senior Software.
-              Favourite Movie: District 9 by Neill Blomkamp.
+              Paul is a Senior Computer Science student athlete member of the TU
+              Mens soccer Program. Favorite books: Eragon Series by Christopher
+              Paolini. Favorite class at TU: Senior Software. Favourite Movie:
+              District 9 by Neill Blomkamp.
             </p>
           </div>
         </div>
-      </div>
-      <div className="aboutButtonContainer">
-        <button className="button" onClick={handleEnterClick}>
-          Back
-        </button>
       </div>
     </div>
   );

@@ -117,7 +117,7 @@ const TesterPage: React.FC = () => {
   };
 
   const handleTesterClick = () => {
-    navigate('/'); // Navigate to AboutPage path
+    navigate('/home'); // Navigate to AboutPage path
   };
 
   const posterPath = '/kyeqWdyUXW608qlYkRqosgbbJyK.jpg'; //Poster Pathway for avatar

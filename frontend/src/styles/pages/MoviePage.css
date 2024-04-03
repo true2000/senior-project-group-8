@@ -1,6 +1,6 @@
 .moviePageContainer {
     min-height: 100vh;
-    background: linear-gradient(to bottom, #d8581d, #de3dd3);
+    background: black;
     color: white;
     display: flex;
     flex-direction: column;
@@ -24,6 +24,7 @@
     margin-top: 15px;
     align-items: center; /* Align items to the start */
     gap: 10px; /* Adds space between the header and the list */
+    margin-left: 15px;
 }
 
 .header {
