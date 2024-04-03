@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
-            <a className="navbar-brand" href="home">
+            <a className="navbar-brand" href="/">
               <img
                 src={require('../src/styles/images/HomeLogo.png')}
                 alt="NavBar Logo"
@@ -64,7 +64,7 @@ const App: React.FC = () => {
         </nav>
 
         <Routes>
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/movieRec" element={<MovieRecPage />} />
