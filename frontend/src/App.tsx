@@ -18,7 +18,7 @@ const App: React.FC = () => {
               <img
                 src={require('../src/styles/images/HomeLogo.png')}
                 alt="NavBar Logo"
-                style={{ width: '70px', height: 'auto' }}
+                style={{ width: '55px', height: 'auto' }}
               />
             </a>
             <button
@@ -37,9 +37,16 @@ const App: React.FC = () => {
                 <a
                   className="nav-link active"
                   aria-current="page"
-                  href="movies"
+                  href="movieRec"
                 >
                   Movies
+                </a>
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="movies"
+                >
+                  Recommendation
                 </a>
               </div>
             </div>

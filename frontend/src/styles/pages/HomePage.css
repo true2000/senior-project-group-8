@@ -31,7 +31,7 @@
 }
 
 .homeIntroContainer {
-    margin-top: 30px;
+    margin-top: 100px;
     align-items: center;
     text-align: center;
 }
@@ -48,6 +48,7 @@
 
 .homeIntroContainer h3 {
     font-size: 22px;
+    margin-bottom: 40px;
 }
 
 .homeIntroContainer p {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import '../styles/pages/MovieRecPage.css';
-import { useNavigate } from 'react-router-dom';
 
 interface Movie {
   name: string;
@@ -9,12 +8,6 @@ interface Movie {
 }
 
 const MovieRecPage = () => {
-  const navigate = useNavigate();
-
-  const handleBackButton = () => {
-    navigate('/home');
-  };
-
   const [movies, setMovies] = useState<Movie[]>([]); // Initialize moviesData state as an empty string
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -73,9 +66,6 @@ const MovieRecPage = () => {
   return (
     <div className="movieRecPageContainer">
       <div className="movieRecHeader">
-        <button className="backButton" onClick={handleBackButton}>
-          Back
-        </button>
         <h1>Find Your Favourite Movies</h1>
       </div>
       <div className="genreHeader">
