@@ -38,7 +38,7 @@
 
 }
 
-.overlay {
+.overlayTest {
     position: fixed; /* Fixed position relative to the viewport */
     top: 0;
     left: 0;
@@ -48,7 +48,7 @@
     z-index: 1002; /* Ensure it appears above other content */
   }
   
-  .popup {
+  .popupTest {
     position: fixed; /* Fixed position relative to the viewport */
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
@@ -64,7 +64,7 @@
     color: black;
   }
   
-  .popup img {
+  .popupTest img {
     max-width: 10%; /* Ensure image fits within popup */
   }
   
@@ -80,8 +80,6 @@
     width: 100px;
     cursor: pointer;
 }
-
-  
 
 .movieRecContainer {
   display: flex;

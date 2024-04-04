@@ -15,15 +15,15 @@ interface Movie {
   image: string;
 }
 
-const Popup: React.FC<ImageInfo & { onClose: () => void }> = ({
+const PopupTest: React.FC<ImageInfo & { onClose: () => void }> = ({
   imageUrl,
   title,
   description,
   onClose,
 }) => {
   return (
-    <div className="overlay">
-      <div className="popup">
+    <div className="overlayTest">
+      <div className="popupTest">
         <button className="close-button" onClick={onClose}>
           Close
         </button>
@@ -152,7 +152,7 @@ const TesterPage: React.FC = () => {
         ></img>
         {/* Popup */}
         {showPopup && (
-          <Popup
+          <PopupTest
             imageUrl={fullURL}
             title="Avatar"
             description="Blue People running around jumping on dragons and doing kinky things with their hair"
