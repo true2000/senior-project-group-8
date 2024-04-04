@@ -54,12 +54,17 @@ const AboutPage: React.FC = () => {
         <div className="introductionProfile">
           <img
             className="image"
-            src={require('../styles/images/image3.jpeg')}
+            src={require('../styles/images/ryanPhoto.jpg')}
             alt="image"
           />
           <div className="text">
             <h1>Ryan Nock</h1>
-            <p>Add Info....</p>
+            <p>
+              Ryan is a Senior Computer Science student at TU. Favorite class at
+              TU: Senior Software. Favorite book: Generative Deep Learning by
+              David Foster. Favorite class at TU: Senior Software. Favourite
+              Movie: Interstellar by Christopher Nolan.
+            </p>
           </div>
         </div>
 
