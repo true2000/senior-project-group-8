@@ -57,21 +57,6 @@
     width: 500px;
 }
 
-
-.aboutButtonContainer {
-    display: flex;
-    margin-top: 30px;
-    justify-content: center;
-}
-
-.button {
-    padding: 10px 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
 .introductionProfileFinal {
     justify-content: center;
     text-align: center;

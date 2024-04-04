@@ -15,21 +15,6 @@
     display: flex;
 }
 
-.homeTaskButton {
-    padding: 10px 20px;
-    margin-top: 25px; /* Adjust spacing above the button */
-    margin-bottom: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-
-}
-
-.homeTaskButton:not(:last-child) {
-    margin-right: 10px; /* Add space between buttons */
-}
-
 .homeIntroContainer {
     margin-top: 100px;
     align-items: center;

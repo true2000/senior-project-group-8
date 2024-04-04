@@ -4,14 +4,11 @@
     color: white;
     display: flex;
     flex-direction: column;
-
-
 }
 
 .searchContainer {
     margin-top: 50px;
     text-align: center;
-
 }
 
 

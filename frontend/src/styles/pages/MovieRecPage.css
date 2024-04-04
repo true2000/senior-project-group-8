@@ -20,14 +20,6 @@
     font-size: 60px;
 }
 
-.backButton {
-    margin-left: 10px;
-    margin-right: 21.5%;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-}
-
 .movieRecContainer {
     margin-left: 10px;
     display: flex;
@@ -40,14 +32,6 @@
 .movieRecContainer image {
     justify-content: center;
   }
-
-.buttonContainer {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-top: 30px;
-    cursor: pointer;
-}
 
 .genreHeader {
     margin-left: 10px;
