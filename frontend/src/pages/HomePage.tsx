@@ -13,6 +13,10 @@ const HomePage: React.FC = () => {
     <div className="homePageContainer">
       <div className="homeIntroContainer">
         <h1>FLICK FINDER</h1>
+        <img
+          className="logoImage"
+          src={require('../styles/images/HomeLogo.png')}
+        ></img>
         <h3>
           Find your next Flick based on movies that you are currently enjoying
         </h3>

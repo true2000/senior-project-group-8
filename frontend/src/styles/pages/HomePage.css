@@ -16,7 +16,7 @@
 }
 
 .homeIntroContainer {
-    margin-top: 100px;
+    margin-top: 60px;
     align-items: center;
     text-align: center;
 }
@@ -49,4 +49,8 @@
 
 .enterButton {
     cursor: pointer;
+}
+
+.logoImage {
+    padding-bottom: 40px;
 }
