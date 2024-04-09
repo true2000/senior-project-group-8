@@ -16,9 +16,9 @@ const App: React.FC = () => {
           <div className="container-fluid" style={{ marginLeft: '20px' }}>
             <a className="navbar-brand" href="/">
               <img
-                src={require('../src/styles/images/HomeLogo.png')}
+                src={require('../src/styles/images/navBarSecondPhoto.png')}
                 alt="NavBar Logo"
-                style={{ width: '55px', height: 'auto' }}
+                style={{ width: '100px', height: '50px' }}
               />
             </a>
             <button

@@ -93,6 +93,7 @@ const MoviePage = () => {
             </div>
           ))}
         </div>
+        <button className="findButton">Compare</button>
       </div>
 
       <div className="searchContainer">
