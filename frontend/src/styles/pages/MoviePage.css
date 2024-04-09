@@ -1,0 +1,52 @@
+.moviePageContainer {
+    min-height: 100vh;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchContainer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+.moviePageContainer ul {
+    list-style-type: none; /* Removes bullet points */
+}
+
+.headerContainer {
+    display: flex;
+    margin-top: 15px;
+    align-items: center; /* Align items to the start */
+    gap: 10px; /* Adds space between the header and the list */
+    margin-left: 15px;
+}
+
+.header {
+    margin-right: 10px;
+}
+
+.moviesList {
+    display: flex;
+    flex-direction: row; /* Display movie items in a row */
+    flex-wrap: wrap; /* Wrap items to the next line if not enough space */
+    gap: 10px; /* Space between movie items */
+    align-items: center; /* Vertically align items in the center */
+
+}
+
+.movieItem {
+    white-space: nowrap; /* Prevent the movie title and path from wrapping */
+    margin: 0 10px;
+
+}
+
+.selectedImages {
+    width: 80px;
+    height: auto;
+}
+
+
+

@@ -1,0 +1,52 @@
+.homePageContainer {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-width: 50px;
+}
+
+.homePageTaskBar {
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.homeIntroContainer {
+    margin-top: 100px;
+    align-items: center;
+    text-align: center;
+}
+
+/* Basic setup for all the texts for home page */
+.homeIntroContainer h1 { 
+    font-size: 60px;
+    margin-bottom: 60px;
+}
+
+.homeIntroContainer h2 {
+    font-size: 30px;
+}
+
+.homeIntroContainer h3 {
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.homeIntroContainer p {
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.homeIntroContainer button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.enterButton {
+    cursor: pointer;
+}

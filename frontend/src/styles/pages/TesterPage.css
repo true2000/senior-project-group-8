@@ -1,0 +1,121 @@
+.testerPageContainer {
+    min-height: 80vh;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-width: 50px;
+}
+
+.testerPageTaskBar {
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.taskButton {
+    padding: 10px 20px;
+    margin-top: 25px; /* Adjust spacing above the button */
+    margin-bottom: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.taskButton:not(:last-child) {
+    margin-right: 10px; /* Add space between buttons */
+}
+
+.pictureContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.overlayTest {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire viewport */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1002; /* Ensure it appears above other content */
+  }
+  
+  .popupTest {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the popup */
+    z-index: 1003; /* Ensure it appears above the overlay */
+    background-color: white; /* Popup background color */
+    padding: 20px; /* Add padding for content */
+    border-radius: 10px; /* Add rounded corners */
+  }
+  
+  .popup-content {
+    text-align: center; /* Center content horizontally */
+    color: black;
+  }
+  
+  .popupTest img {
+    max-width: 10%; /* Ensure image fits within popup */
+  }
+  
+  .popup h2 {
+    margin-top: 10px; /* Add space between image and title */
+  }
+  
+  .popup p {
+    margin-top: 10px; /* Add space between title and description */
+  }
+
+.normalProfile {
+    width: 100px;
+    cursor: pointer;
+}
+
+.movieRecContainer {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping to new lines */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+
+.movieRecContainer image {
+  justify-content: center;
+}
+
+.movie-item {
+  flex-shrink: 0; /* Prevent items from shrinking */
+  margin-right: 10px; /* Add spacing between items */
+  cursor: pointer;
+}
+
+.popup {
+  text-align: center;
+  color: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+

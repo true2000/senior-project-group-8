@@ -1,0 +1,68 @@
+.aboutPageContainer {
+    min-height: 100vh;
+    min-width: 100vh;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.aboutHeaderContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.aboutHeader {
+    font-size: 70px;
+}
+
+.purposeContainer {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.purposeContainer h2 {
+    font-size: 28px;
+}
+
+.introductionProfile {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px;
+    margin-left: 25%;
+}
+
+.image {
+    
+    width: 200px;
+    height: 220px;
+    margin-right: 30px;
+}
+
+.text {
+    flex-grow: 1;
+}
+
+.text h1 {
+    margin-top: 0;
+    margin-left: -45%;
+}
+
+.text p {
+    width: 500px;
+}
+
+.introductionProfileFinal {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center; 
+    margin-bottom: 80px;
+    margin-left: 25%;
+
+}
