@@ -12,7 +12,8 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top" 
+          style={color: #fffff}>
           <div className="container-fluid" style={{ marginLeft: '20px' }}>
             <a className="navbar-brand" href="/">
               <img
