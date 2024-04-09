@@ -4,6 +4,7 @@
     color: white;
     display: flex;
     flex-direction: column;
+
 }
 
 .searchContainer {
@@ -19,16 +20,17 @@
 .headerContainer {
     display: flex;
     margin-top: 15px;
-    align-items: center; /* Align items to the start */
+    align-items: stretch; /* Align items to the start */
     gap: 10px; /* Adds space between the header and the list */
     margin-left: 15px;
 }
 
 .header {
-    margin-right: 10px;
+    margin-right: auto;
 }
 
 .moviesList {
+    flex: 1;
     display: flex;
     flex-direction: row; /* Display movie items in a row */
     flex-wrap: wrap; /* Wrap items to the next line if not enough space */
@@ -49,6 +51,8 @@
 }
 
 .findButton {
+    align-self: flex-end;
+    margin-right: 10px;
     padding: 10px 20px;
     cursor: pointer;
     border: none;
