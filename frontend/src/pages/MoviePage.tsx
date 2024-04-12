@@ -92,6 +92,13 @@ const MoviePage = () => {
     });
   };
 
+  const removeMovie = (movieId: string) => {
+    const updatedMovies = selectedMovies.filter(
+      (movie) => movie.id !== movieId,
+    );
+    setSelectedMovies(updatedMovies);
+  };
+
   const imageSize = 'w200'; // Choose the appropriate image size
 
   const baseURL = 'https://image.tmdb.org/t/p/'; //base URL for any of the pathways
@@ -110,7 +117,12 @@ const MoviePage = () => {
                 className="selectedImages"
                 src={fullUrlSelected + movie.posterPath}
               />
-              <button className="removeButton">x</button>
+              <button
+                className="removeButton"
+                onClick={() => removeMovie(movie.id)}
+              >
+                x
+              </button>
             </div>
           ))}
         </div>
