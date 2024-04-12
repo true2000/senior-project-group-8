@@ -34,6 +34,8 @@ const MoviePage = () => {
     } catch (error) {
       console.error('Failed to fetch movies:', error);
     }
+
+    navigate('/recommendations');
   };
 
   useEffect(() => {
