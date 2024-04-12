@@ -59,4 +59,10 @@
     border-radius: 5px;
 }
 
+.findButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: white;
+}
+
 

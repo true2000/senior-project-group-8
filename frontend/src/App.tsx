@@ -5,6 +5,7 @@ import MoviePage from './pages/MoviePage';
 import AboutPage from './pages/AboutPage';
 import MovieRecPage from './pages/MovieRecPage';
 import TesterPage from './pages/TesterPage';
+import MovieReturn from './pages/MovieReturn';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -77,6 +78,7 @@ const App: React.FC = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/movieRec" element={<MovieRecPage />} />
           <Route path="/tester" element={<TesterPage />} />
+          <Route path="/recommendations" element={<MovieReturn />} />
 
           {/* Define more routes as needed */}
         </Routes>

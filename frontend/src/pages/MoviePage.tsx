@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import '../styles/pages/MoviePage.css';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 interface Movie {
   id: string;
@@ -10,12 +12,29 @@ interface Movie {
 }
 
 const MoviePage = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<Movie[]>([]);
   const [selectedMovies, setSelectedMovies] = useState<Movie[]>([]);
   const [moviesData, setMoviesData] = useState<Movie[][]>(
     Array.from({ length: 26 }, () => []),
   );
+
+  const handleCompareClick = async () => {
+    if (selectedMovies.length === 0) {
+      alert('Please select at least one movie.');
+      return;
+    }
+    const movieIds = selectedMovies.map((movie) => movie.id).join(',');
+    const url = `http://127.0.0.1:5000/movies?ids=${movieIds}`;
+
+    try {
+      const response = await axios.get(url);
+      navigate('/recommendations', { state: { movies: response.data } });
+    } catch (error) {
+      console.error('Failed to fetch movies:', error);
+    }
+  };
 
   useEffect(() => {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -93,7 +112,13 @@ const MoviePage = () => {
             </div>
           ))}
         </div>
-        <button className="findButton">Compare</button>
+        <button
+          className="findButton"
+          onClick={handleCompareClick}
+          disabled={selectedMovies.length === 0}
+        >
+          Compare
+        </button>
       </div>
 
       <div className="searchContainer">
