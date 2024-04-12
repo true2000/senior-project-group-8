@@ -106,9 +106,11 @@ const MoviePage = () => {
           {selectedMovies.map((movie, index) => (
             <div key={index} className="movieItem">
               <img
+                draggable
                 className="selectedImages"
                 src={fullUrlSelected + movie.posterPath}
               />
+              <button className="removeButton">x</button>
             </div>
           ))}
         </div>

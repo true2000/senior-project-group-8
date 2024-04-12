@@ -36,6 +36,7 @@
     flex-wrap: wrap; /* Wrap items to the next line if not enough space */
     gap: 10px; /* Space between movie items */
     align-items: center; /* Vertically align items in the center */
+    position: relative;
 
 }
 
@@ -45,9 +46,14 @@
 
 }
 
+.movieItem:hover .removeButton {
+    opacity: 1; /* Show the remove button on hover */
+}
+
 .selectedImages {
     width: 80px;
     height: auto;
+    cursor: pointer;
 }
 
 .findButton {
@@ -65,4 +71,17 @@
     color: white;
 }
 
+.removeButton {
+    opacity: 0; /* Initially hide the remove button */
 
+    border: none;
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    position: absolute;
+
+
+}
