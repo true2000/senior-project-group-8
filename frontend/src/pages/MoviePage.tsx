@@ -99,6 +99,37 @@ const MoviePage = () => {
     setSelectedMovies(updatedMovies);
   };
 
+  const handleDragStart = (
+    e: React.DragEvent<HTMLDivElement>,
+    movieId: string,
+  ) => {
+    e.dataTransfer.setData('movieId', movieId);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (
+    e: React.DragEvent<HTMLDivElement>,
+    targetIndex: number,
+  ) => {
+    const draggedMovieId = e.dataTransfer.getData('movieId');
+    const updatedMovies = [...selectedMovies];
+    const draggedMovie = updatedMovies.find(
+      (movie) => movie.id === draggedMovieId,
+    );
+
+    if (draggedMovie) {
+      const draggedIndex = updatedMovies.findIndex(
+        (movie) => movie.id === draggedMovieId,
+      );
+      updatedMovies.splice(draggedIndex, 1); // Remove dragged movie from its original position
+      updatedMovies.splice(targetIndex, 0, draggedMovie); // Insert dragged movie at the new position
+      setSelectedMovies(updatedMovies);
+    }
+  };
+
   const imageSize = 'w200'; // Choose the appropriate image size
 
   const baseURL = 'https://image.tmdb.org/t/p/'; //base URL for any of the pathways
@@ -111,9 +142,15 @@ const MoviePage = () => {
         <h1 className="header">Selected Movies:</h1>
         <div className="moviesList">
           {selectedMovies.map((movie, index) => (
-            <div key={index} className="movieItem">
+            <div
+              key={index}
+              className="movieItem"
+              onDragStart={(e) => handleDragStart(e, movie.id)}
+              onDragOver={handleDragOver}
+              onDrop={(e) => handleDrop(e, index)}
+              draggable
+            >
               <img
-                draggable
                 className="selectedImages"
                 src={fullUrlSelected + movie.posterPath}
               />
