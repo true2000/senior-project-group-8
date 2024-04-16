@@ -4,6 +4,7 @@
     color: white;
     display: flex;
     flex-direction: column;
+
 }
 
 .searchContainer {
@@ -19,21 +20,24 @@
 .headerContainer {
     display: flex;
     margin-top: 15px;
-    align-items: center; /* Align items to the start */
+    align-items: stretch; /* Align items to the start */
     gap: 10px; /* Adds space between the header and the list */
     margin-left: 15px;
 }
 
 .header {
-    margin-right: 10px;
+    margin-right: auto;
 }
 
 .moviesList {
+    flex: 1;
     display: flex;
     flex-direction: row; /* Display movie items in a row */
     flex-wrap: wrap; /* Wrap items to the next line if not enough space */
     gap: 10px; /* Space between movie items */
     align-items: center; /* Vertically align items in the center */
+    position: relative;
+    list-style: none;
 
 }
 
@@ -43,10 +47,42 @@
 
 }
 
+.movieItem:hover .removeButton {
+    opacity: 1; /* Show the remove button on hover */
+}
+
 .selectedImages {
     width: 80px;
     height: auto;
+    cursor: pointer;
 }
 
+.findButton {
+    align-self: flex-end;
+    margin-right: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.findButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: white;
+}
+
+.removeButton {
+    opacity: 0; /* Initially hide the remove button */
+
+    border: none;
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    position: absolute;
 
 
+}

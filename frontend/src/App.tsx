@@ -5,6 +5,7 @@ import MoviePage from './pages/MoviePage';
 import AboutPage from './pages/AboutPage';
 import MovieRecPage from './pages/MovieRecPage';
 import TesterPage from './pages/TesterPage';
+import MovieReturn from './pages/MovieReturn';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,9 +17,9 @@ const App: React.FC = () => {
           <div className="container-fluid" style={{ marginLeft: '20px' }}>
             <a className="navbar-brand" href="/">
               <img
-                src={require('../src/styles/images/HomeLogo.png')}
+                src={require('../src/styles/images/navBarSecondPhoto.png')}
                 alt="NavBar Logo"
-                style={{ width: '55px', height: 'auto' }}
+                style={{ width: '100px', height: '50px' }}
               />
             </a>
             <button
@@ -77,6 +78,7 @@ const App: React.FC = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/movieRec" element={<MovieRecPage />} />
           <Route path="/tester" element={<TesterPage />} />
+          <Route path="/recommendations" element={<MovieReturn />} />
 
           {/* Define more routes as needed */}
         </Routes>
