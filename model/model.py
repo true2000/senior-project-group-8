@@ -11,7 +11,7 @@ df['genres'] = df['genres'].astype(str).str.replace(' ', '').str.lower()
 genre_vectors = {}
 for idx, row in df.iterrows():
     genres = row['genres'].split(',')
-    genre_vectors[row['title']] = set(genres)
+    genre_vectors[row['id']] = set(genres)
 
 # Compute cosine similarity between movies based on genres
 def cosine_similarity(movie1, movie2):
@@ -20,25 +20,27 @@ def cosine_similarity(movie1, movie2):
     return intersection / union
 
 # Function to get recommendations for multiple movies
-def get_combined_recommendations(movie_titles):
+def get_combined_recommendations(movie_ids):
     combined_recommendations = set()
-    for movie_title in movie_titles:
-        similarities = [(title, cosine_similarity(movie_title, title)) for title in genre_vectors if title != movie_title]
+    for movie_id in movie_ids:
+        similarities = [(id, cosine_similarity(movie_id, id)) for id in genre_vectors if id != movie_id]
         similarities.sort(key=lambda x: x[1], reverse=True)
-        top_recommendations = [title for title, _ in similarities[:5]]
+        top_recommendations = [id for id, _ in similarities[:10]]
         combined_recommendations.update(top_recommendations)
     return combined_recommendations
 
 # Example: Get recommendations for multiple movies
 while True:
-    movie_names = input("Enter movie titles (comma-separated): ")
-    if movie_names.lower() == "exit":
+    movie_ids = input("Enter movie ids (comma-separated): ")
+    if movie_ids.lower() == "exit":
         break
     else:
-        movie_list = movie_names.split(',')
-        recommendations = get_combined_recommendations(movie_list)
+        movie_ids_list = [int(id_str) for id_str in movie_ids.split(',')]
+        recommendations = get_combined_recommendations(movie_ids_list)
         print("Combined recommendations for the given movies:")
         for i, movie in enumerate(recommendations, start=1):
             # Retrieve movie info from the original DataFrame
-            movie_info = data[data['title'] == movie]
+            movie_info = data[data['id'] == movie]
             print(f"{i}. {movie_info}")
+            if i >= 10:
+                break
