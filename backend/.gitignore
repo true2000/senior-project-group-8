@@ -5,8 +5,10 @@ __pycache__/
 venv/
 .env
 *.sqlite3
+static/
 
 # IDE specific files
 .idea
 .vscode
 *.swp
+

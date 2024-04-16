@@ -5,6 +5,7 @@ import '../styles/pages/MovieReturn.css';
 const MovieReturn = () => {
   const location = useLocation();
   const { movies } = location.state || {}; // Access state passed along with navigate
+  console.log(movies);
 
   return (
     <div className="movieReturnContainer">
