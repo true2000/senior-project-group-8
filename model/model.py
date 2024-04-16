@@ -39,4 +39,6 @@ while True:
         recommendations = get_combined_recommendations(movie_list)
         print("Combined recommendations for the given movies:")
         for i, movie in enumerate(recommendations, start=1):
-            print(f"{i}. {movie}")
+            # Retrieve movie info from the original DataFrame
+            movie_info = data[data['title'] == movie]
+            print(f"{i}. {movie_info}")
