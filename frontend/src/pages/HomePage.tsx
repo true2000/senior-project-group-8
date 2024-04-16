@@ -23,10 +23,6 @@ const HomePage: React.FC = () => {
           Enter
         </button>{' '}
         {/* Button for navigation */}
-        <p>
-          This website is designed to help you find and increase your knowledge
-          of movies.
-        </p>
       </div>
     </div>
   );
