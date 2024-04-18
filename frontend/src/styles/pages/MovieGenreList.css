@@ -1,0 +1,21 @@
+.movies-container {
+    padding: 20px;
+  }
+  
+  .movie-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+  }
+  
+
+  
+  .movie-poster {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .movie-details {
+    padding: 10px;
+  }
