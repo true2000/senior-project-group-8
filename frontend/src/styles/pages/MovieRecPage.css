@@ -6,3 +6,24 @@
     display: flex;
     flex-direction: column;
 }
+
+.genreHeader {
+    margin-left: 30px;
+}
+
+.genreHeader h1 {
+    font-size: 50px;
+}
+
+.genreScrollContatiner {
+    margin-bottom: 50px;
+}
+
+.movieRecHeader {
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+.movieRecHeader h1{
+    font-size: 60px;
+}

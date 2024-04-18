@@ -5,7 +5,7 @@
   .movie-row {
     display: flex;
     overflow-x: auto;
-    gap: 20px;
+    gap: 30px;
   }
   
 
