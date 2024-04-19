@@ -65,14 +65,19 @@ const MovieGenreLists: React.FC<{ csvFilePath: string }> = ({
           </div>
         ))}
         {selectedMovie && (
-          <div className="popup">
-            <button onClick={handleClosingPopup}>Close</button>
-            <h2>{selectedMovie.title}</h2>
-            <img
-              src={fullURL + selectedMovie.posterPath}
-              alt={selectedMovie.title}
-            />
-            <p>{selectedMovie.description}</p>
+          <div className="overlay" onClick={handleClosingPopup}>
+            <div className="popup">
+              <button onClick={handleClosingPopup}>Close</button>
+              <h2>{selectedMovie.title}</h2>
+              <div className="imageContainer">
+                <img
+                  src={fullURL + selectedMovie.posterPath}
+                  alt={selectedMovie.title}
+                  className="popup-img"
+                />
+              </div>
+              <p className="popup-content">{selectedMovie.description}</p>
+            </div>
           </div>
         )}
       </div>
