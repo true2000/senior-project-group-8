@@ -44,8 +44,7 @@ const MovieGenreLists: React.FC<{ csvFilePath: string }> = ({
   const handleMovieClick = (movie: Movie) => {
     setSelectedMovie(movie);
   };
-
-  const handleCloseModal = () => {
+  const handleClosingPopup = () => {
     setSelectedMovie(null);
   };
 
@@ -65,23 +64,18 @@ const MovieGenreLists: React.FC<{ csvFilePath: string }> = ({
             />
           </div>
         ))}
-      </div>
-      {selectedMovie && (
-        <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={handleCloseModal}>
-              Close
-            </button>
+        {selectedMovie && (
+          <div className="popup">
+            <button onClick={handleClosingPopup}>Close</button>
             <h2>{selectedMovie.title}</h2>
-            <p>{selectedMovie.year}</p>
-            <p>{selectedMovie.description}</p>
             <img
               src={fullURL + selectedMovie.posterPath}
               alt={selectedMovie.title}
             />
+            <p>{selectedMovie.description}</p>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
