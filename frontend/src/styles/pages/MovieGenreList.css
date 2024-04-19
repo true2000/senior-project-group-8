@@ -41,6 +41,7 @@
   }
 
   .popup {
+    margin-top: 50px;
     position: fixed;
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
