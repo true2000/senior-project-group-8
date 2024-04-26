@@ -59,12 +59,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 55%; /* Maximum width of the popup */
+    max-width: 60%; /* Maximum width of the popup */
     max-height: 90vh; /* Maximum height of the popup (90% of viewport height) */
     overflow: auto; /* Enable vertical scrolling if content exceeds max-height */
   }
   
   .popup-content-rec {
+    margin-top: 20px;
     color: black;
     background-color: #fff;
     padding: 20px;
