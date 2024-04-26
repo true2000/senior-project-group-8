@@ -1,7 +1,8 @@
+import os
+from flask_swagger_ui import get_swaggerui_blueprint
 from flask import Flask, request, jsonify
 from flask_restful import Api, Resource
 from flask_cors import CORS
-from flask_swagger_ui import get_swaggerui_blueprint
 import pandas as pd
 
 from movie_dto import MovieDTO
@@ -23,8 +24,11 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     },
 )
 
-filepath = "/Users/lukelambert/Desktop/gData.csv.zip"
+filepath = filepath = r"C:\Users\lukel\Desktop\gData.zip"
+print(os.path.exists(filepath))  # This should print True if the file exists at the specified location
 data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
+
+
 def initialize():
     df = data[["id", "title", "vote_average", "vote_count", "genres"]]
     df['genres'] = df['genres'].astype(str).str.replace(' ', '').str.lower()
@@ -62,15 +66,20 @@ class MovieList(Resource):
     def get(self):
         movie_ids = request.args.get('ids')
         if movie_ids:
-            movie_ids_list = [int(id_str) for id_str in movie_ids.split(',')]  # Convert string IDs to integers more readably
+            movie_ids_list = [int(id_str) for id_str in movie_ids.split(',')]
             recommendations = get_combined_recommendations(movie_ids_list, genre_vectors)
             detailed_recommendations = []
 
             print("Combined recommendations for the given movies:")
             for i, movie in enumerate(recommendations, start=1):
-                # Retrieve movie info from the original DataFrame
                 movie_info = data[data['id'] == movie]
-                detailed_info = movie_info.to_dict(orient='records')[0] if not movie_info.empty else {}
+                if not movie_info.empty:
+                    detailed_info = movie_info.to_dict(orient='records')[0]
+                    # Ensure no NaN values are present; replace with 'N/A' if necessary
+                    detailed_info = {k: (v if v == v else "N/A") for k, v in detailed_info.items()}
+                else:
+                    detailed_info = {}
+
                 detailed_recommendations.append(detailed_info)
                 print(f"{i}. {detailed_info}")  # Printing each recommended movie's details
                 if i >= 10:
