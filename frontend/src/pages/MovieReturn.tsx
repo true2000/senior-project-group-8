@@ -7,6 +7,7 @@ interface IMovie {
   title: string;
   release_date: string;
   poster_path: string;
+  overview: string;
 }
 
 interface LocationState {
@@ -27,6 +28,13 @@ const MovieReturn: React.FC = () => {
     setSelectedMovie(null);
   };
 
+  const truncateTitle = (title: string, maxLength: number) => {
+    if (title.length > maxLength) {
+      return title.substring(0, maxLength) + '...';
+    }
+    return title;
+  };
+
   return (
     <div className="movieReturnContainer">
       <h1>Movie Comparison</h1>
@@ -39,7 +47,8 @@ const MovieReturn: React.FC = () => {
               onClick={() => handleMovieClick(movie)}
             >
               <h3>
-                {movie.title} ({new Date(movie.release_date).getFullYear()})
+                {truncateTitle(movie.title, 15)} (
+                {new Date(movie.release_date).getFullYear()})
               </h3>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -59,6 +68,13 @@ const MovieReturn: React.FC = () => {
             <p>
               Released: {new Date(selectedMovie.release_date).getFullYear()}
             </p>
+            <div className="retPopimg">
+              <img
+                src={`https://image.tmdb.org/t/p/w200${selectedMovie.poster_path}`}
+                alt={selectedMovie.title}
+              />
+            </div>
+            <p>{selectedMovie.overview}</p>
             <button onClick={handleClosePopup}>Close</button>
           </div>
         </div>

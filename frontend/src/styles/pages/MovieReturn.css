@@ -49,6 +49,7 @@
   
   .popup-rec {
     position: fixed;
+    margin-top: 40px;
     top: 50%;
     left: 50%;
     width: 100%;
@@ -58,9 +59,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 55%; /* Maximum width of the popup */
+    max-height: 90vh; /* Maximum height of the popup (90% of viewport height) */
+    overflow: auto; /* Enable vertical scrolling if content exceeds max-height */
   }
   
   .popup-content-rec {
+    color: black;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -87,4 +92,7 @@
     font-size: 16px;
   }
   
-  
+  .retPopImg {
+    width: 30px;
+    height: auto;
+  }
