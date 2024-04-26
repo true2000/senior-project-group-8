@@ -15,7 +15,7 @@
   }
   
   .movie-poster {
-    width: 150px;
+    width: 200px;
     height: auto;
     object-fit: cover;
     transition: transform 0.2s ease-in-out;
