@@ -24,7 +24,7 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     },
 )
 
-filepath = filepath = r"C:\Users\lukel\Desktop\gData.zip"
+filepath = filepath = r"/Users/paulrichnow/Desktop/gData.csv.zip"
 print(os.path.exists(filepath))  # This should print True if the file exists at the specified location
 data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
 
