@@ -212,5 +212,5 @@ function searchStrings(query: string, moviesData: Movie[][]): Movie[] {
 
   return moviesData[index]
     .filter((movie) => movie.title.toLowerCase().includes(query.toLowerCase()))
-    .slice(0, 25);
+    .slice(0, 15);
 }
