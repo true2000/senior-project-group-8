@@ -24,7 +24,7 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     },
 )
 
-filepath = filepath = r"/Users/paulrichnow/Desktop/gData.csv.zip"
+filepath = filepath = r"/Users/lukelambert/Desktop/gData.csv.zip"
 print(os.path.exists(filepath))  # This should print True if the file exists at the specified location
 data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
 
@@ -56,7 +56,7 @@ def get_combined_recommendations(movie_ids, genre_vectors):
 
         similarities = [(id, cosine_similarity(movie_id, id)) for id in filtered_genre_vectors]
         similarities.sort(key=lambda x: x[1], reverse=True)
-        top_recommendations = [id for id, _ in similarities[:10]]
+        top_recommendations = [id for id, _ in similarities[:12]]
         combined_recommendations.update(top_recommendations)
     return combined_recommendations
 
@@ -82,7 +82,7 @@ class MovieList(Resource):
 
                 detailed_recommendations.append(detailed_info)
                 print(f"{i}. {detailed_info}")  # Printing each recommended movie's details
-                if i >= 10:
+                if i >= 12:
                     break
 
             return jsonify(detailed_recommendations)
