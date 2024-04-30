@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # Define the path for the input CSV file
-file_path = "/Users/paulrichnow/Desktop/gData.csv"
+file_path = "/Users/emmap/SeniorProject/senior-project-group-8/gData.csv.zip"
 
 # Load the data from CSV file
 df = pd.read_csv(file_path)

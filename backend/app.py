@@ -24,7 +24,7 @@ swaggerui_blueprint = get_swaggerui_blueprint(
 
 
 def initialize():
-    filepath = "/Users/paulrichnow/Desktop/gData.csv.zip"
+    filepath = "/Users/emmap/SeniorProject/senior-project-group-8/model/gData.csv.zip"
     data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
     df = data[["id", "title", "vote_average", "vote_count", "genres"]]
     df['genres'] = df['genres'].astype(str).str.replace(' ', '').str.lower()
