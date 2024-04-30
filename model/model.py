@@ -1,9 +1,8 @@
 import pandas as pd
 
 # Create a DataFrame from the data
-data = pd.read_csv("model/TMDB_movie_dataset_v11.csv", quotechar='"', skipinitialspace=True)
-#df = data[["id", "title", "vote_average", "vote_count", "genres"]]
-df = data
+data = pd.read_csv("/Users/lukelambert/Desktop/gData.csv", quotechar='"', skipinitialspace=True)
+df = data[["id", "title", "vote_average", "vote_count", "genres"]]
 
 # Preprocess genres by removing spaces and converting to lowercase
 df['genres'] = df['genres'].astype(str).str.replace(' ', '').str.lower()
