@@ -23,7 +23,7 @@ const AboutPage: React.FC = () => {
         <div className="introductionProfile">
           <img
             className="image"
-            src={require('../styles/images/devinPhoto.jpg')}
+            src={require('../styles/images/devinPhoto.JPG')}
             alt="image"
           />
           <div className="text">
