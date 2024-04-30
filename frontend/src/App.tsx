@@ -49,13 +49,6 @@ const App: React.FC = () => {
                 >
                   Recommendation
                 </a>
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="tester"
-                >
-                  Tester
-                </a>
               </div>
             </div>
             <div
