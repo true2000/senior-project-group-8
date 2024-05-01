@@ -5,7 +5,7 @@ const MovieRecPage = () => {
   return (
     <div className="movieRecPageContainer">
       <div className="movieRecHeader">
-        <h1>Find Your Favourite Movies</h1>
+        <h1>Find Your Favorite Movies</h1>
       </div>
       <div className="genreScrollContatiner">
         <div className="genreHeader">

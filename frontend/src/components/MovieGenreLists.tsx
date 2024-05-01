@@ -28,7 +28,7 @@ const MovieGenreLists: React.FC<{ csvFilePath: string }> = ({
           posterPath: row.poster_path,
           description: row.overview,
         }));
-        setMovies(moviesData);
+        setMovies(moviesData.slice(0, -1));
       } catch (error) {
         console.error('Failed to fetch and parse CSV:', error);
       }
@@ -64,23 +64,23 @@ const MovieGenreLists: React.FC<{ csvFilePath: string }> = ({
             />
           </div>
         ))}
-        {selectedMovie && (
-          <div className="overlay" onClick={handleClosingPopup}>
-            <div className="popup">
-              <button onClick={handleClosingPopup}>Close</button>
-              <h2>{selectedMovie.title}</h2>
-              <div className="imageContainer">
-                <img
-                  src={fullURL + selectedMovie.posterPath}
-                  alt={selectedMovie.title}
-                  className="popup-img"
-                />
-              </div>
-              <p className="popup-content">{selectedMovie.description}</p>
-            </div>
-          </div>
-        )}
       </div>
+      {selectedMovie && (
+        <div className="overlay" onClick={handleClosingPopup}>
+          <div className="popup">
+            <button onClick={handleClosingPopup}>Close</button>
+            <h2>{selectedMovie.title}</h2>
+            <div className="imageContainer">
+              <img
+                src={fullURL + selectedMovie.posterPath}
+                alt={selectedMovie.title}
+                className="popup-img"
+              />
+            </div>
+            <p className="popup-content">{selectedMovie.description}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

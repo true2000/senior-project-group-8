@@ -12,14 +12,16 @@
 }
 
 .genreHeader h1 {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .genreScrollContatiner {
     margin-bottom: 50px;
+
 }
 
 .movieRecHeader {
+    text-align: center;
     margin-bottom: 30px;
     margin-left: 30px;
 }
