@@ -3,6 +3,8 @@ import Papa from 'papaparse';
 import '../styles/pages/MoviePage.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface Movie {
   id: string;
@@ -19,6 +21,7 @@ const MoviePage = () => {
   const [moviesData, setMoviesData] = useState<Movie[][]>(
     Array.from({ length: 26 }, () => []),
   );
+  const [loading, setLoading] = useState(false);
 
   const handleCompareClick = async () => {
     if (selectedMovies.length === 0) {
@@ -28,11 +31,15 @@ const MoviePage = () => {
     const movieIds = selectedMovies.map((movie) => movie.id).join(',');
     const url = `http://127.0.0.1:5000/movies?ids=${movieIds}`;
 
+    setLoading(true);
+
     try {
       const response = await axios.get(url);
       navigate('/recommendations', { state: { movies: response.data } });
     } catch (error) {
       console.error('Failed to fetch movies:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -166,9 +173,15 @@ const MoviePage = () => {
         <button
           className="findButton"
           onClick={handleCompareClick}
-          disabled={selectedMovies.length === 0}
+          disabled={selectedMovies.length === 0 || loading} // Disable button when loading
         >
-          Compare
+          {loading ? ( // Show spinner if loading, otherwise show button text
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          ) : (
+            'Compare'
+          )}
         </button>
       </div>
 
