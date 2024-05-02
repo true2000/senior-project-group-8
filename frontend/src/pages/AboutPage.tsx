@@ -73,7 +73,7 @@ const AboutPage: React.FC = () => {
       <div>
         <div className="introductionProfileFinal">
           <img
-            className="image"
+            className="imageDev"
             src={require('../styles/images/devinPhoto.JPG')}
             alt="image"
           />
