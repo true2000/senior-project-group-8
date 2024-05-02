@@ -79,7 +79,13 @@ const AboutPage: React.FC = () => {
           />
           <div className="text">
             <h1>Devin Pattison</h1>
-            <p></p>
+            <p>
+              Devin is a Senior Computer Science and Mathematics student at the
+              University of Tulsa. On his free time he enjoys cracking problems
+              on LeetCode or watching movies. Favorite book: Dune by Frank
+              Herbert. Favorite Movie: Oppenheimer by Christopher Nolan. Nolan.
+              Favorite class at TU: Algorithms.
+            </p>
           </div>
         </div>
       </div>
