@@ -1,6 +1,6 @@
 import os
 from flask_swagger_ui import get_swaggerui_blueprint
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 from flask_restful import Api, Resource
 from flask_cors import CORS
 import pandas as pd
@@ -24,16 +24,16 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     },
 )
 
-filepath = filepath = r"/Users/paulrichnow/Desktop/gData.csv.zip"
+filepath = r"/Users/devin/OneDrive/Desktop/SeniorProject/senior-project-group-8/backend/gData.csv.zip"
 print(os.path.exists(filepath))  # This should print True if the file exists at the specified location
 data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
 
 
 def initialize():
-    filepath = "/Users/paulrichnow/Desktop/gData.csv.zip"
+    filepath = "/Users/devin/OneDrive/Desktop/SeniorProject/senior-project-group-8/backend/gData.csv.zip"
     data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
     df = data[["id", "title", "vote_average", "vote_count", "genres"]]
-    df['genres'] = df['genres'].astype(str).str.replace(' ', '').str.lower()
+    df.loc[:,'genres'] = df['genres'].astype(str).str.replace(' ', '').str.lower()
     genre_vectors = {}
     for idx, row in df.iterrows():
         genres = row['genres'].split(',')
@@ -47,6 +47,8 @@ genre_vectors = initialize()
 def cosine_similarity(movie1, movie2):
     intersection = len(genre_vectors[movie1] & genre_vectors[movie2])
     union = len(genre_vectors[movie1]) + len(genre_vectors[movie2]) - intersection
+    if union == 0:
+        return 0  # Avoid division by zero
     return intersection / union
 
 
@@ -87,8 +89,13 @@ class MovieList(Resource):
                 if i >= 12:
                     break
 
-            return jsonify(detailed_recommendations)
-        return {'message': 'No movie ids provided'}, 400
+        #Create the response object and set Cache-Control header
+        response = make_response(jsonify(detailed_recommendations))
+        response.headers['Cache-Control'] = 'public, max-age=31536000' #Cache for 1 hour
+        response.headers['Vary'] = 'Accept, Cookie, ids'
+        return response
+        
+        #return {'message': 'No movie ids provided'}, 400
 
 
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
@@ -98,7 +105,9 @@ api.add_resource(MovieList, '/movies')  # Adding the movies endpoint
 
 class HelloWorld(Resource):
     def get(self):
-        return {"message": "Hello, World!"}
+        response = make_response({"message": "Hello, World!"})
+        response.headers['Cache-Control'] = 'public, max-age=31536000'
+        return response
 
 
 api.add_resource(HelloWorld, '/')
