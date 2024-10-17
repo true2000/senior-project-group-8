@@ -1,9 +1,4 @@
 {
-  "name": "flick-finder",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "node app.py"
-  },
   "dependencies": {
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
