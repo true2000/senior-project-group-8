@@ -4,12 +4,15 @@ from flask import Flask, request, jsonify, make_response
 from flask_restful import Api, Resource
 from flask_cors import CORS
 import pandas as pd
-
-from movie_dto import MovieDTO
+from flask_caching import Cache
 
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
+
+# Configure cache
+app.config['CACHE_TYPE'] = 'simple'  # Consider using 'redis' or 'filesystem' for production environments
+cache = Cache(app)
 
 # Swagger UI configuration
 SWAGGER_URL = '/swagger'  # URL for exposing Swagger UI (without trailing '/')
@@ -25,22 +28,26 @@ swaggerui_blueprint = get_swaggerui_blueprint(
 )
 
 filepath = r"/Users/devin/OneDrive/Desktop/SeniorProject/senior-project-group-8/backend/gData.csv.zip"
-print(os.path.exists(filepath))  # This should print True if the file exists at the specified location
-data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
 
-
-def initialize():
-    filepath = "/Users/devin/OneDrive/Desktop/SeniorProject/senior-project-group-8/backend/gData.csv.zip"
+# Load the data from the CSV file.. may want to change later here so DB can be updated continuously in real time (i think well need a service worker for that though)
+def load_data():
     data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
+    print(os.path.exists(filepath))  # This should print True if the file exists at the specified location
+    return data
+
+# ensure that data loading and processing are cached effectively
+@cache.cached(timeout=31536000, key_prefix='genre_vectors') # Cache datafile for one year.
+def initialize():
+    data = load_data()
     df = data[["id", "title", "vote_average", "vote_count", "genres"]]
-    df.loc[:,'genres'] = df['genres'].astype(str).str.replace(' ', '').str.lower()
+    df.loc[: , 'genres'] = df['genres'].astype(str).str.replace(' ', '').str.lower()
     genre_vectors = {}
     for idx, row in df.iterrows():
         genres = row['genres'].split(',')
         genre_vectors[row['id']] = set(genres)
     return genre_vectors
 
-
+# Use the cached genre vectors throughout the application
 genre_vectors = initialize()
 
 
@@ -69,6 +76,7 @@ def get_combined_recommendations(movie_ids, genre_vectors):
 class MovieList(Resource):
     def get(self):
         movie_ids = request.args.get('ids')
+        data = load_data()  # Load the data here instead of globally
         if movie_ids:
             movie_ids_list = [int(id_str) for id_str in movie_ids.split(',')]
             recommendations = get_combined_recommendations(movie_ids_list, genre_vectors)
@@ -89,13 +97,13 @@ class MovieList(Resource):
                 if i >= 12:
                     break
 
-        #Create the response object and set Cache-Control header
-        response = make_response(jsonify(detailed_recommendations))
-        response.headers['Cache-Control'] = 'public, max-age=31536000' #Cache for 1 hour
-        response.headers['Vary'] = 'Accept, Cookie, ids'
-        return response
+            # Create the response object and set Cache-Control header
+            response = make_response(jsonify(detailed_recommendations))
+            response.headers['Cache-Control'] = 'public, max-age=31536000'  # Cache for 1 year
+            response.headers['Vary'] = 'Accept, Cookie, ids'
+            return response
         
-        #return {'message': 'No movie ids provided'}, 400
+        return {'message': 'No movie ids provided'}, 400
 
 
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
