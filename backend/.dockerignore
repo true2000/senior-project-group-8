@@ -1,0 +1,19 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyc
+venv/
+
+#Environment files
+.env
+
+# Database files
+*.sqlite3
+
+# Static files
+static/
+
+# IDE and editor config files
+.idea
+.vscode
+*.swp
