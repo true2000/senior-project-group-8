@@ -2,6 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app/
 
+COPY /Users/emmap/Downloads/gData.csv.zip /app/
 COPY ./ /app/
 
 RUN pip install --upgrade pip
