@@ -27,12 +27,19 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     },
 )
 
-filepath = r"/Users/devin/OneDrive/Desktop/SeniorProject/senior-project-group-8/backend/gData.csv.zip"
+# Set the data directory using an environment variable, defaulting to '/data'
+MOVIE_DATA_DIR = os.getenv("MOVIE_DATA_DIR", "./data")
 
-# Load the data from the CSV file.. may want to change later here so DB can be updated continuously in real time (i think well need a service worker for that though)
+# Set the filepath using the data directory
+filepath = os.path.join(MOVIE_DATA_DIR, 'gData.csv')
+
+# Load the data from the CSV file
 def load_data():
-    data = pd.read_csv(filepath, compression='zip', quotechar='"', skipinitialspace=True)
-    print(os.path.exists(filepath))  # This should print True if the file exists at the specified location
+    print(f"Attempting to load data from: {filepath}")  # Debugging statement
+    if not os.path.exists(filepath):
+        raise FileNotFoundError(f"Data file not found at {filepath}")
+    data = pd.read_csv(filepath, quotechar='"', skipinitialspace=True)
+    print("Data loaded successfully!")  # Confirm successful loading
     return data
 
 # ensure that data loading and processing are cached effectively
@@ -45,6 +52,7 @@ def initialize():
     for idx, row in df.iterrows():
         genres = row['genres'].split(',')
         genre_vectors[row['id']] = set(genres)
+    print("Genre vectors initialized!")  # Confirm successful initialization
     return genre_vectors
 
 # Use the cached genre vectors throughout the application
@@ -121,4 +129,4 @@ class HelloWorld(Resource):
 api.add_resource(HelloWorld, '/')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
