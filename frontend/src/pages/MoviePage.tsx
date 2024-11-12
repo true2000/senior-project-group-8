@@ -160,6 +160,7 @@ const MoviePage = () => {
               <img
                 className="selectedImages"
                 src={fullUrlSelected + movie.posterPath}
+                alt={movie.title}
               />
               <button
                 className="removeButton"
@@ -199,6 +200,7 @@ const MoviePage = () => {
               {suggestion.title + '\t(' + suggestion.year.slice(0, 4) + ')'}
               <input
                 type="checkbox"
+                title="Select movie"
                 checked={selectedMovies.some(
                   (movie) => movie.id === suggestion.id,
                 )}
